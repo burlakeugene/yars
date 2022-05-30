@@ -1,0 +1,53 @@
+.socials{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.social{
+  width: 44px;
+  height: 44px;
+  background-color: var(--gray-ultra-light);
+  margin-right: 20px;
+  display: block;
+  color: var(--gray);
+  transition: all 0.3s;
+  font-size: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .icon svg{
+    width: 20px;
+    height: auto;
+  }
+  &:last-child{
+    margin-right: 0;
+  }
+  &:hover{
+    color: var(--white);
+  }
+  &--vkontakte{
+    &:hover{
+      background-color: #0077FF;
+    }
+  }
+  &--telegram{
+    &:hover{
+      background-color: #039BE5;
+    }
+  }
+  &--instagram{
+    &:hover{
+      background-color: #F01061;
+    }
+  }
+  &--facebook{
+    &:hover{
+      background-color: #0080ff;
+    }
+  }
+  &--youtube{
+    &:hover{
+      background-color: #f20000;
+    }
+  }
+}

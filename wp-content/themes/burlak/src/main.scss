@@ -1,0 +1,43 @@
+body{
+  --background: #ffffff;
+  --gradient-start: #C6E6E6;
+  --gradient-end: #7B8EB0;
+  --white: #ffffff;
+  --black: #000000;
+  --gray: #4F4F4F;
+  --border-color: #BDBDBD;
+  --theme: #7B8EB0;
+  --red: #ff0000;
+  --container-width: 1710px;
+  --container-mini-width: 1200px;
+}
+@import 'js/fancybox/fancybox.css';
+@import 'js/swiper/swiper.min.css';
+
+@import 'scss/animations';
+@import 'scss/fonts';
+
+@import 'scss/wordpress-fixies';
+@import 'scss/modal';
+@import 'scss/control';
+@import 'scss/form';
+@import 'scss/content';
+@import 'scss/common';
+
+@import 'scss/preloader';
+@import 'scss/lazy';
+@import 'scss/header';
+@import 'scss/contacts';
+@import 'scss/search';
+
+
+@import 'scss/banners';
+@import 'scss/articles';
+
+@import 'scss/about';
+@import 'scss/footer';
+@import 'scss/socials';
+@import 'scss/navigation';
+
+@import 'scss/adaptive';
+
