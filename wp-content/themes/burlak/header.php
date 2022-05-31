@@ -12,53 +12,34 @@
   <?= get_option('head_additions'); ?>
 </head>
 
+<?php
+  $phone = get_phones()[0];
+?>
+
 <body data-home="<?= esc_url(home_url('/')); ?>" <?php body_class(get_option('theme')); ?>>
   <div id="app">
     <div id="top"></div>
-    <button data-callback="test">test</button>
     <header class="header">
       <div class="container">
         <div class="header__inner">
           <div class="header__col">
-            <div class="header__logo">
-              <?php get_template_part('blocks/logo') ?>
-            </div>
-            <div class="header__navigation">
-              <?php my_get_template_part('blocks/navigation', [
-                'type' => 'header'
-              ]) ?>
-            </div>
+            <?php get_template_part('blocks/logo') ?>
           </div>
           <div class="header__col">
-            <div class="header__socials">
-              <?php get_template_part('blocks/socials') ?>
-            </div>
+            <?php my_get_template_part('blocks/navigation', [
+              'type' => 'header'
+            ]) ?>
           </div>
-          <div class="header__col">
-            <div class="header__buttons">
-              <?php get_template_part('search/button') ?>
-              <div class="header__buttons__deliver"></div>
-              <?php get_template_part('favorite/button--header') ?>
-              <?php get_template_part('compare/button--header') ?>
-              <?php get_template_part('cart/button--header') ?>
-              <?php get_template_part('blocks/toggle') ?>
+          <?php if($phone): ?>
+            <div class="header__col">
+              <a class="button button--black button--ghost" href="tel:<?= phone_replace($phone) ?>">
+                <?= $phone ?>
+              </a>
             </div>
-          </div>
+          <?php endif; ?>
         </div>
       </div>
     </header>
     <sidebar class="sidebar">
-      <div class="sidebar__main">
-        <div class="sidebar__navigation">
-          <?php my_get_template_part('blocks/navigation', [
-            'type' => 'header'
-          ]) ?>
-        </div>
-      </div>
-      <div class="sidebar__footer">
-        <div class="sidebar__socials">
-          <?php get_template_part('blocks/socials') ?>
-        </div>
-      </div>
     </sidebar>
     <main>

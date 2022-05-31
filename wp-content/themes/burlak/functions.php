@@ -100,6 +100,7 @@
     register_setting('theme-page-settings', 'address');
     register_setting('theme-page-settings', 'phone');
     register_setting('theme-page-settings', 'email');
+		register_setting('theme-page-settings', 'entity');
     register_setting('theme-page-settings', 'vkontakte');
     register_setting('theme-page-settings', 'viber');
     register_setting('theme-page-settings', 'whatsup');
@@ -137,6 +138,10 @@
       <label>
         <div>Mail</div>
         <input type="email" name="email" value="<?= esc_attr(get_option('email')) ?>" />
+      </label>
+			<label>
+        <div>Entity</div>
+        <input type="text" name="entity" value="<?= esc_attr(get_option('entity')) ?>" />
       </label>
       <label>
         <div>Copyrights</div>
@@ -258,6 +263,10 @@
       $socials['whatsup'] = get_option('whatsup');
     }
     return $socials;
+	}
+
+	function get_phones(){
+		return explode(',', get_option('phone'));
 	}
 
 	function get_current_tags(){

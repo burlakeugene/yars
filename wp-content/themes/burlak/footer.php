@@ -3,18 +3,16 @@
 		<div class="container">
 			<div class="footer__blocks">
 				<div class="footer__block">
-					<h3>
-						<?= get_bloginfo('name') ?>
-					</h3>
 					<?php my_get_template_part('blocks/navigation', [
 						'type' => 'footer'
 					]) ?>
 				</div>
 				<div class="footer__block">
-					<h3>Контакты</h3>
+					<h3>Свяжитесь с нами!</h3>
 					<ul>
-						<li><?= get_option('address') ?></li>
+						<li><?php get_template_part('icons/pin') ?><?= get_option('address') ?></li>
 						<li>
+							<?php get_template_part('icons/phone') ?>
 							<?php
 								$phones = get_option('phone');
 								$phones = explode(',', $phones);
@@ -28,26 +26,37 @@
 								?>
 						</li>
 						<li>
+							<?php get_template_part('icons/envelop') ?>
 							<a href="mailto:<?= get_option('email') ?>">
 								<?= get_option('email') ?>
 							</a>
 						</li>
 					</ul>
+				</div>
+				<div class="footer__block">
 					<div class="footer__socials">
 						<?php get_template_part('blocks/socials') ?>
+					</div>
+					<div class="footer__entity">
+						<?= get_option('entity') ?>
+					</div>
+					<div class="footer__payments">
+						<img src="<?= bloginfo('template_directory'); ?>/src/images/payments.png" alt="payments">
 					</div>
 				</div>
 				<div class="footer__block footer__block--wide">
 					<?= get_option('copyrights') ?>
-					<a class="developer" href="https://marketing.rockotov.ru/" target="_blank">Разработка сайтов</a>
+					<?php my_get_template_part('blocks/navigation', [
+						'type' => 'footer_second',
+						'items_wrap' => '<ul>%3$s<li><a class="developer" href="https://marketing.rockotov.ru/" target="_blank">Разработка сайтов</a></li></ul>'
+					]) ?>
 				</div>
 			</div>
 		</div>
 	</footer>
 	<?php
 		my_get_template_part('blocks/modal', array(
-			'title' => 'Обратный звонок',
-			'text' => 'Воспользуйтесь функцией обратного звонка<br />и наши менеджеры перезвонят Вам в ближайшее время.',
+			'title' => 'Получить предложение',
 			'content' => load_template_part('forms/callback'),
 			'id' => 'callback'
 		));

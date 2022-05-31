@@ -15,15 +15,17 @@
     }
   }
   &__item {
-    &--center{
-      text-align: center;
+    &--centered{
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    &__submit{
+    &__submit {
       width: auto;
       display: inline-block;
       position: relative;
     }
-    .wpcf7-spinner{
+    .wpcf7-spinner {
       position: absolute;
       background-image: none;
       top: 50%;
@@ -59,18 +61,18 @@
 input,
 textarea,
 select {
-  padding: 12px 23px;
+  padding: 10px;
   line-height: 1em;
   background-color: var(--white);
   border: 1px solid var(--border-color);
   color: var(--black);
   display: block;
-  font-size: 14px;
-  font-weight: 500;
+  font-family: manrope;
+  font-size: 16px;
+  font-weight: 400;
   width: 100%;
   border-radius: 0;
   appearance: none;
-  font-family: montserrat;
   &::-webkit-input-placeholder {
     color: var(--gray-light);
   }

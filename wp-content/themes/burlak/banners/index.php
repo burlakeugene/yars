@@ -1,34 +1,29 @@
 <?php
-$post_info = get_post_type_object('banners');
-$args = array(
-  'numberposts' => -1,
-  'post_type' => $post_info->name,
-  // 'meta_query'	=> array(
-  //       'relation'		=> 'AND',
-  //       array(
-  //           'key'	 	=> 'slider',
-  //           'value'	  	=> '1',
-  //           'compare' 	=> '=',
-  //       ),
-  //   ),
-);
-$banners = get_posts($args);
+$id = 19;
+$fields = get_fields($id);
 ?>
-<?php if ($banners): ?>
-<div class="banners swiper-container">
-  <div class="swiper-wrapper">
-    <?php foreach ($banners as $banner) : ?>
-      <div class="swiper-slide">
-        <?php
-          $post = get_post($banner->ID);
-          setup_postdata($post);
-          get_template_part('banners/item');
-        ?>
-      </div>
-    <?php endforeach ?>
-  </div>
-  <div class="banners__navigation">
-    <?php get_template_part('blocks/swiper-navigation') ?>
+
+<div class="banner banner--index" style="background-image: url(<?= $fields['image']['url'] ?>)">
+  <div class="container container--wide">
+    <div class="banner__title">
+      <h1>
+        <?= $fields['title'] ?>
+      </h1>
+    </div>
+    <div class="banner__text">
+      <?= $fields['text'] ?>
+    </div>
+    <?php
+      if($fields['button']['enable']):
+      ?>
+        <div class="banner__button">
+          <button class="button button--black" data-callback="Баннер на главной">
+            <?= $fields['button']['text'] ?>
+          </button>
+        </div>
+      <?php
+      endif;
+    ?>
   </div>
 </div>
-<?php endif; ?>
+

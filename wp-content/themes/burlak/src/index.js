@@ -6,7 +6,6 @@ import * as Burlak from 'burlak';
 import Maskit from 'maskit';
 import Map from './js/map.js';
 import Notic from 'notic';
-import Search from './js/search';
 import CookieToggler from './js/cookieToggler';
 import Request from './js/request';
 import { eventDecorator, declension } from './helpers';
@@ -213,16 +212,6 @@ import { eventDecorator, declension } from './helpers';
             });
           });
       };
-      let search = new Search({
-        onShow: () => {
-          // cart.hide();
-        },
-        onSearch: () => {
-          router.addLinksEvent();
-          commonFunc();
-        },
-      });
-      window.search = search;
 
       let productGallery = document.querySelectorAll('.product__gallery');
       productGallery.length &&

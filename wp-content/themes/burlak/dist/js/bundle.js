@@ -2093,16 +2093,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_map_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./js/map.js */ "./src/js/map.js");
 /* harmony import */ var notic__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! notic */ "./node_modules/notic/package/bundle.js");
 /* harmony import */ var notic__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(notic__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _js_search__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/search */ "./src/js/search.js");
-/* harmony import */ var _js_cookieToggler__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/cookieToggler */ "./src/js/cookieToggler.js");
-/* harmony import */ var _js_request__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./js/request */ "./src/js/request.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./helpers */ "./src/helpers.js");
+/* harmony import */ var _js_cookieToggler__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./js/cookieToggler */ "./src/js/cookieToggler.js");
+/* harmony import */ var _js_request__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./js/request */ "./src/js/request.js");
+/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./helpers */ "./src/helpers.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -2201,7 +2199,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     function commonFunc() {
       var callbackButtons = document.querySelectorAll('[data-callback]');
       callbackButtons.length && callbackButtons.forEach(function (button) {
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_11__["eventDecorator"])({
+        Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["eventDecorator"])({
           target: button,
           event: {
             type: 'click',
@@ -2222,7 +2220,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
         var openButton = dialog.querySelector('.dialog-call'),
             closeButton = dialog.querySelector('.dialog-close');
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_11__["eventDecorator"])({
+        Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["eventDecorator"])({
           target: openButton,
           event: {
             type: 'click',
@@ -2233,7 +2231,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           }
         });
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_11__["eventDecorator"])({
+        Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["eventDecorator"])({
           target: closeButton,
           event: {
             type: 'click',
@@ -2266,7 +2264,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           };
 
           buttons.forEach(function (button) {
-            Object(_helpers__WEBPACK_IMPORTED_MODULE_11__["eventDecorator"])({
+            Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["eventDecorator"])({
               target: button,
               event: {
                 type: 'click',
@@ -2309,21 +2307,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         });
       };
 
-      var search = new _js_search__WEBPACK_IMPORTED_MODULE_8__["default"]({
-        onShow: function onShow() {// cart.hide();
-        },
-        onSearch: function onSearch() {
-          router.addLinksEvent();
-          commonFunc();
-        }
-      });
-      window.search = search;
       var productGallery = document.querySelectorAll('.product__gallery');
       productGallery.length && productGallery.forEach(function (gallery) {
         var thumbs = gallery.querySelectorAll('.product__gallery__thumb'),
             items = gallery.querySelectorAll('.product__gallery__item');
         thumbs.length && thumbs.forEach(function (thumb) {
-          Object(_helpers__WEBPACK_IMPORTED_MODULE_11__["eventDecorator"])({
+          Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["eventDecorator"])({
             target: thumb,
             event: {
               type: 'click',
@@ -2391,7 +2380,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
       var toggles = document.querySelectorAll('.toggle');
       toggles.length && toggles.forEach(function (toggle) {
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_11__["eventDecorator"])({
+        Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["eventDecorator"])({
           target: toggle,
           event: {
             type: 'click',
@@ -2457,7 +2446,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           target.style.height = target.scrollHeight + 'px';
         }
 
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_11__["eventDecorator"])({
+        Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["eventDecorator"])({
           target: accordionToggle,
           event: {
             type: 'click',
@@ -2502,7 +2491,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var loadMore = document.querySelectorAll('.load-more');
       loadMore.length && loadMore.forEach(function (container) {
         var button = container.querySelector('.load-more__pagination__button');
-        button && Object(_helpers__WEBPACK_IMPORTED_MODULE_11__["eventDecorator"])({
+        button && Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["eventDecorator"])({
           target: button,
           event: {
             type: 'click',
@@ -2514,7 +2503,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   list = button.closest('.load-more').querySelector('.load-more__list'),
                   next = navigation.querySelector('.next'),
                   href = next.href;
-              _js_request__WEBPACK_IMPORTED_MODULE_10__["default"].get({
+              _js_request__WEBPACK_IMPORTED_MODULE_9__["default"].get({
                 url: href,
                 headers: {
                   'Content-Type': 'text/html; charset=utf-8'
@@ -2550,7 +2539,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var selects = document.querySelectorAll('.select');
       selects.length && selects.forEach(function (select) {
         var active = select.querySelector('.select__current');
-        active && Object(_helpers__WEBPACK_IMPORTED_MODULE_11__["eventDecorator"])({
+        active && Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["eventDecorator"])({
           target: active,
           event: {
             type: 'click',
@@ -2590,7 +2579,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       videos.length && videos.forEach(function (videoWrapper) {
         var video = videoWrapper.querySelector('video'),
             control = videoWrapper.querySelector('.video__control');
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_11__["eventDecorator"])({
+        Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["eventDecorator"])({
           target: control,
           event: {
             type: 'click',
@@ -2600,7 +2589,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           }
         });
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_11__["eventDecorator"])({
+        Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["eventDecorator"])({
           target: video,
           event: {
             type: 'play',
@@ -2609,7 +2598,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           }
         });
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_11__["eventDecorator"])({
+        Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["eventDecorator"])({
           target: video,
           event: {
             type: 'pause',
@@ -2622,7 +2611,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           }
         });
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_11__["eventDecorator"])({
+        Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["eventDecorator"])({
           target: video,
           event: {
             type: 'seeking',
@@ -2631,7 +2620,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           }
         });
-        Object(_helpers__WEBPACK_IMPORTED_MODULE_11__["eventDecorator"])({
+        Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["eventDecorator"])({
           target: video,
           event: {
             type: 'seeked',
@@ -8735,156 +8724,6 @@ __webpack_require__.r(__webpack_exports__);
 
 var request = new burlak__WEBPACK_IMPORTED_MODULE_0__["Request"]();
 /* harmony default export */ __webpack_exports__["default"] = (request);
-
-/***/ }),
-
-/***/ "./src/js/search.js":
-/*!**************************!*\
-  !*** ./src/js/search.js ***!
-  \**************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _request__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./request */ "./src/js/request.js");
-/* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers */ "./src/helpers.js");
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-
-
-
-var Search = /*#__PURE__*/function () {
-  function Search() {
-    var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    _classCallCheck(this, Search);
-
-    this.props = props;
-    this.button = document.querySelector('.search__button');
-    this.popup = document.querySelector('.search__popup');
-    this.input = this.popup.querySelector('.search__popup__form__input');
-    this.resetButton = this.popup.querySelector('.search__popup__form__clear');
-    this.resultWrapper = document.querySelector('.search__popup__result__wrapper');
-    this.result = this.resultWrapper.querySelector('.search__popup__result');
-    this.init();
-  }
-
-  _createClass(Search, [{
-    key: "hide",
-    value: function hide() {
-      this.props.onHide && this.props.onHide();
-      document.body.classList.remove('search-visible');
-      this.popup && this.popup.classList.remove('search__popup--active');
-      this.button && this.button.classList.remove('search__button--active');
-    }
-  }, {
-    key: "show",
-    value: function show() {
-      var _this = this;
-
-      this.props.onShow && this.props.onShow();
-      document.body.classList.add('search-visible');
-      this.popup.classList.add('search__popup--active');
-      this.button.classList.add('search__button--active');
-      setTimeout(function () {
-        _this.input.focus();
-      }, 300);
-    }
-  }, {
-    key: "listeners",
-    value: function listeners() {
-      this.props.listeners && this.props.listeners(this);
-    }
-  }, {
-    key: "getResult",
-    value: function getResult(search) {
-      var _this2 = this;
-
-      this.resultWrapper.classList.add('loading');
-      _request__WEBPACK_IMPORTED_MODULE_0__["default"].get({
-        url: '?wc-ajax=get_search_result',
-        data: {
-          search: search
-        }
-      }).then(function (resp) {
-        _this2.result.innerHTML = resp;
-        _this2.props.onSearch && _this2.props.onSearch(_this2);
-      }).catch(function (error) {
-        _this2.result.innerHTML = '';
-      }).finally(function () {
-        _this2.resultWrapper.classList.remove('loading');
-      });
-    }
-  }, {
-    key: "init",
-    value: function init() {
-      var _this3 = this;
-
-      [this.button, this.popup].forEach(function (item) {
-        item && item.addEventListener('click', function (e) {
-          e.stopPropagation();
-        });
-      });
-      this.button && Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["eventDecorator"])({
-        target: this.button,
-        event: {
-          type: 'click',
-          body: function body(e) {
-            var nextState = !_this3.button.classList.contains('search__button--active');
-            nextState ? _this3.show() : _this3.hide();
-          }
-        }
-      });
-      this.resetButton && Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["eventDecorator"])({
-        target: this.resetButton,
-        event: {
-          type: 'click',
-          body: function body(e) {
-            _this3.input.value = '';
-
-            _this3.input.focus();
-
-            _this3.input.dispatchEvent(new Event('input'));
-          }
-        }
-      });
-      this.input && Object(_helpers__WEBPACK_IMPORTED_MODULE_1__["eventDecorator"])({
-        target: this.input,
-        event: {
-          type: 'input',
-          body: function body(e) {
-            if (!e.target.value) {
-              _this3.result.innerHTML = '';
-
-              _this3.resultWrapper.classList.remove('loading');
-
-              if (_this3.timeout) clearTimeout(_this3.timeout);
-              return;
-            }
-
-            if (_this3.timeout) clearTimeout(_this3.timeout);
-            _this3.timeout = setTimeout(function () {
-              _this3.getResult(e.target.value);
-            }, 500);
-          }
-        }
-      });
-      document.addEventListener('click', function (event) {
-        _this3.hide();
-      });
-      this.listeners();
-    }
-  }]);
-
-  return Search;
-}();
-
-/* harmony default export */ __webpack_exports__["default"] = (Search);
 
 /***/ }),
 

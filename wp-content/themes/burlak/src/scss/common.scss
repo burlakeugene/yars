@@ -4,10 +4,7 @@
   width: 100%;
   margin: 0 auto;
   &--wide {
-    max-width: 100%;
-  }
-  &--mini {
-    max-width: var(--container-mini-width);
+    max-width: var(--container-wide-width);
   }
 }
 
@@ -51,10 +48,10 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: montserrat;
+  font-family: manrope;
+  font-weight: 400;
   background-color: var(--background);
   color: var(--black);
-  font-weight: 400;
   height: 100%;
   min-height: 100vh;
   user-select: none;
@@ -88,46 +85,30 @@ a,
 
 .button {
   cursor: pointer;
-  background-color: var(--white);
-  border: 1px solid var(--white);
-  color: var(--black);
-  padding: 20px 60px;
+  background-color: var(--gray);
+  border: 2px solid var(--gray);
+  color: var(--white);
+  padding: 10px 15px;
   transition: all 0.3s;
   line-height: 1em;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: manrope;
   position: relative;
   display: inline-block;
-  text-transform: uppercase;
   &[disabled] {
     cursor: progress;
   }
   &:not([disabled]):hover {
-    color: var(--white);
-    background-color: var(--black);
-  }
-  &:not([disabled]):hover {
-    color: var(--white);
-    background-color: var(--black);
-  }
-  &--black {
-    background-color: var(--black);
-    color: var(--white);
-    border-color: var(--black);
-    &:not([disabled]):hover {
-      color: var(--black);
-      background-color: var(--white);
-    }
+    color: var(--black);
+    background-color: var(--white);
   }
   &--ghost {
     background-color: transparent;
-    &.button--white {
-      border: 1px solid var(--white);
+    color: var(--black);
+    &:not([disabled]):hover {
       color: var(--white);
-      &:not([disabled]):hover {
-        background-color: var(--white);
-        color: var(--black);
-      }
+      background-color: var(--gray);
     }
   }
   &--loader {
@@ -159,23 +140,9 @@ a,
 
 .wpcf7-form.submitting {
   .button {
-    &--black {
-      &,
-      &:hover {
-        color: transparent;
-        background: var(--black);
-        pointer-events: none;
-      }
-    }
-    &--white,
-    &.button--ghost {
-      &,
-      &:hover {
-        color: transparent;
-        background: var(--white);
-        pointer-events: none;
-      }
-    }
+    pointer-events: none;
+    background: var(--gray);
+    color: transparent;
   }
 }
 
@@ -688,7 +655,7 @@ a,
   position: relative;
   z-index: 3;
   margin: 40px 0;
-  &--border{
+  &--border {
     padding-bottom: 40px;
     position: relative;
     &:after {
@@ -736,9 +703,10 @@ a,
   h1,
   h2,
   h3 {
-    font-size: 48px;
+    font-size: 70px;
     text-transform: uppercase;
-    font-family: druk;
+    font-weight: 800;
+    font-family: grandis;
   }
 }
 
@@ -1098,13 +1066,12 @@ body .notic-loading svg {
 .logo {
   display: block;
   font-size: 0;
-  padding: 10px;
   &--mobile {
     display: none;
   }
   img {
     width: auto;
-    max-height: 55px;
+    max-height: 28px;
     height: auto;
   }
 }
@@ -1176,8 +1143,8 @@ body .notic-loading svg {
 }
 
 body {
-  &.home{
-    main{
+  &.home {
+    main {
       background-image: linear-gradient(
         var(--background-second),
         var(--background-second) 35%,
@@ -1186,11 +1153,11 @@ body {
         var(--background-second) 65%,
         var(--background-second) 92%,
         var(--background) 92%,
-        var(--background) 100%,
+        var(--background) 100%
       );
     }
   }
-  &.about{
+  &.about {
     main {
       background-image: linear-gradient(
         var(--background),
@@ -1202,8 +1169,8 @@ body {
       );
     }
   }
-  &.articles{
-    main{
+  &.articles {
+    main {
       background-image: linear-gradient(
         var(--background),
         var(--background) 55%,
@@ -1306,18 +1273,19 @@ body.scrolled {
     margin: 5px 0;
     input {
       padding: 10px;
+      font-size: 14px;
     }
     .form__item__submit {
       width: 100%;
     }
     input[type='submit'] {
-      border-color: #000;
-      color: #000;
+      border-color: var(--gray);
+      color: var(--gray);
       border-radius: 0 0 30px 0;
       min-width: 200px;
       &:not([disabled]):hover {
         color: #fff;
-        background-color: #000;
+        background-color: var(--gray);
       }
     }
   }

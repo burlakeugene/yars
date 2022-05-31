@@ -4,12 +4,13 @@ body{
   --gradient-end: #7B8EB0;
   --white: #ffffff;
   --black: #000000;
-  --gray: #4F4F4F;
+  --gray: #292929;
+  --gray-light: #B3B3B3;
   --border-color: #BDBDBD;
-  --theme: #7B8EB0;
+  --theme: #1a54fe;
   --red: #ff0000;
-  --container-width: 1710px;
-  --container-mini-width: 1200px;
+  --container-wide-width: 1400px;
+  --container-width: 1200px;
 }
 @import 'js/fancybox/fancybox.css';
 @import 'js/swiper/swiper.min.css';
