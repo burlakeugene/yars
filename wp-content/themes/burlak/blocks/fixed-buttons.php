@@ -4,7 +4,7 @@
       <button class="dialog-close">
         <?php get_template_part('icons/close'); ?>
       </button>
-      <?= do_shortcode('[contact-form-7 title="Обратный звонок мини"]') ?>
+      <?php get_template_part('forms/callback-mini'); ?>
     </div>
     <button class="dialog-call fixed-button">
       <?php get_template_part('icons/phone'); ?>

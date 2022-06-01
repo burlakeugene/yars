@@ -9,15 +9,16 @@
 				</div>
 				<div class="footer__block">
 					<h3>Свяжитесь с нами!</h3>
-					<ul>
+					<ul class="footer__contacts">
 						<li><?php get_template_part('icons/pin') ?><?= get_option('address') ?></li>
 						<li>
 							<?php get_template_part('icons/phone') ?>
 							<?php
 								$phones = get_option('phone');
 								$phones = explode(',', $phones);
-								foreach($phones as $phone):
+								foreach($phones as $index => $phone):
 									?>
+										<?= $index > 0 ? ', ' : '' ?>
 										<a class="footer__phone" href="tel:<?= phone_replace($phone) ?>">
 											<?= $phone ?>
 										</a>

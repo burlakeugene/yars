@@ -5,22 +5,21 @@
       $classes.= ' section--'.$modificator;
     }
   }
+  if($dark){
+    $classes.= ' section--dark section--dark-'.$dark;
+  }
   if(!$render || $render === 1):
 ?>
-<?php if($delivers): ?>
-  <div class="container">
-    <div class="deliver deliver--section"></div>
-  </div>
-<?php endif; ?>
-<section <?= $id ? 'id="'.$id.'"' : '' ?>class="<?= $classes ?>">
+<section <?= $id ? 'id="'.$id.'"' : '' ?> class="<?= $classes ?>">
   <?php if(!$noContainer): ?>
   <div class="container">
   <?php endif;?>
     <?php if($header):
       $title = $header['title'];
       $link = $header['link'];
+      $align = $header['align'] ? $header['align'] : 'center';
       ?>
-      <div class="section__header <?= $header['mini'] ? 'section__header--mini' : '' ?>">
+      <div class="section__header section__header--<?= $align ?> <?= $header['uppercase'] ? 'section__header--uppercase' : ''?> <?= $header['line'] ? 'section__header--line' : ''?> <?= $header['mini'] ? 'section__header--mini' : '' ?>">
         <?php if($title): ?>
           <h2><?= $title ?></h2>
         <?php endif; ?>
@@ -46,11 +45,6 @@
   </div>
   <?php endif;?>
 </section>
-<?php if($delivers): ?>
-  <div class="container">
-    <div class="deliver deliver--section"></div>
-  </div>
-<?php endif; ?>
 <?php
   endif;
 ?>

@@ -1,6 +1,31 @@
 <?php
   get_header();
-  get_template_part('banners/index');
+  my_get_template_part('banners/index', array(
+    'data' => get_fields(19)
+  ));
+  my_get_template_part('sections/section', array(
+    'dark' => 25,
+    'header' => array(
+      'title' => get_the_title(39),
+      'line' => true,
+      'align' => 'right',
+      'uppercase' => true
+    ),
+    'content' => array(
+      'path' => 'about/index',
+      'props' => array(
+        'id' => 39
+      )
+    )
+  ));
+  my_get_template_part('sections/section', array(
+    'header' => array(
+      'title' => 'У Вас остались вопросы?',
+    ),
+    'content' => array(
+      'path' => 'forms/callback-mini',
+    )
+  ));
   // my_get_template_part('sections/section', array(
   //   'header' => array(
   //     'title' => get_post_type_object('product')->labels->name,

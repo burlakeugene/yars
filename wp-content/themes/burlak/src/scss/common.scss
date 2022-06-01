@@ -50,6 +50,7 @@ body {
   padding: 0;
   font-family: manrope;
   font-weight: 400;
+  font-size: 16px;
   background-color: var(--background);
   color: var(--black);
   height: 100%;
@@ -88,7 +89,7 @@ a,
   background-color: var(--gray);
   border: 2px solid var(--gray);
   color: var(--white);
-  padding: 10px 15px;
+  padding: 12px 15px;
   transition: all 0.3s;
   line-height: 1em;
   font-size: 16px;
@@ -201,16 +202,6 @@ a,
     }
     .accordion__toggle:after {
       transform: rotate(-45deg);
-    }
-  }
-}
-
-.section--dark {
-  .accordion {
-    border-bottom-color: rgba(255, 255, 255, 0.1);
-    &__toggle,
-    &__target__inner {
-      color: var(--white);
     }
   }
 }
@@ -415,35 +406,73 @@ a,
 }
 
 .section {
-  padding: 80px 0;
+  padding: 50px 0;
   &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
+    color: var(--black);
+    margin-bottom: 20px;
     h2 {
+      font-size: 60px;
+      font-family: grandis;
+      font-weight: 800;
       line-height: 1em;
-      font-size: 48px;
-      font-family: druk;
-      text-transform: uppercase;
-      flex: 1;
-      padding-right: 10px;
+      display: inline-block;
     }
-    &--mini {
+    &--uppercase{
+      text-transform: uppercase;
+    }
+    &--line {
       h2 {
-        font-size: 24px;
+        position: relative;
+        padding-left: 35px;
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: -0.05em;
+          left: 0;
+          width: 15px;
+          height: 100%;
+          background-image: linear-gradient(
+            var(--gradient-start),
+            var(--gradient-end)
+          );
+        }
+      }
+    }
+    &--center {
+      text-align: center;
+    }
+    &--right {
+      text-align: right;
+      &.section__header--line{
+        h2{
+          padding-left: 0;
+          padding-right: 35px;
+          &:before{
+            left: auto;
+            right: 0;
+          }
+        }
       }
     }
   }
   &--dark {
-    background-color: #252525;
-    padding: 160px 0;
-    margin: 80px 0;
-    color: var(--white);
-  }
-  &--pattern {
-    background-image: url(../../images/dot-pattern.png);
-    background-size: 150px 150px;
+    .section__header {
+      color: var(--white);
+    }
+    background-image: url(../../images/pattern.png);
+    background-size: cover;
+    background-position: center 0;
+    background-repeat: no-repeat;
+    &-25 {
+      background-position: center 25%;
+    }
+    &-50 {
+      background-position: center 50%;
+    }
+    &-75 {
+      background-position: center 75%;
+    }
   }
 }
 
@@ -1142,52 +1171,11 @@ body .notic-loading svg {
   }
 }
 
-body {
-  &.home {
-    main {
-      background-image: linear-gradient(
-        var(--background-second),
-        var(--background-second) 35%,
-        var(--background) 35%,
-        var(--background) 65%,
-        var(--background-second) 65%,
-        var(--background-second) 92%,
-        var(--background) 92%,
-        var(--background) 100%
-      );
-    }
-  }
-  &.about {
-    main {
-      background-image: linear-gradient(
-        var(--background),
-        var(--background) calc(50% - 360px),
-        var(--background-second) calc(50% - 360px),
-        var(--background-second) calc(50% + 360px),
-        var(--background) calc(50% + 360px),
-        var(--background) 100%
-      );
-    }
-  }
-  &.articles {
-    main {
-      background-image: linear-gradient(
-        var(--background),
-        var(--background) 55%,
-        var(--background-second) 55%,
-        var(--background-second) 85%,
-        var(--background) 85%,
-        var(--background) 100%
-      );
-    }
-  }
-}
-
 .fixed-button {
   &s {
     position: fixed;
-    bottom: 80px;
-    right: 80px;
+    bottom: 40px;
+    right: 40px;
     z-index: 3;
   }
   width: 80px;
@@ -1279,14 +1267,8 @@ body.scrolled {
       width: 100%;
     }
     input[type='submit'] {
-      border-color: var(--gray);
-      color: var(--gray);
       border-radius: 0 0 30px 0;
       min-width: 200px;
-      &:not([disabled]):hover {
-        color: #fff;
-        background-color: var(--gray);
-      }
     }
   }
   .wpcf7-acceptance input + .wpcf7-list-item-label {
@@ -1346,6 +1328,25 @@ body.scrolled {
         padding: 5px 10px;
         opacity: 1;
         visibility: visible;
+      }
+    }
+  }
+}
+
+.home{
+  .section{
+    .form{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      &__item{
+        flex: 0 0 33.333%;
+        &:last-child{
+          flex: 0 0 100%;
+        }
+        &__submit{
+          width: 100%;
+        }
       }
     }
   }

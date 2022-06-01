@@ -2,8 +2,6 @@
   padding: 0;
   margin: 0;
   list-style: none;
-  font-family: grandis;
-  padding: 10px;
   ul {
     list-style: none;
     padding: 0;
@@ -14,46 +12,86 @@
       a {
         line-height: 1em;
         font-size: 18px;
-        position: relative;
-        padding: 8px;
-        text-transform: uppercase;
-        display: block;
         color: var(--black);
-        &:after {
-          content: '';
-          display: block;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          height: 3px;
-          width: 0;
-          transition: all 0.3s;
-          background-image: linear-gradient(
-            to left,
-            var(--gradient-start),
-            var(--gradient-end)
-          );
-        }
+        transition: all 0.3s;
       }
       &:last-child {
         margin-right: 0;
       }
-      &.current_page_item a,
-      a:hover {
-        &:after {
-          width: 100%;
+    }
+  }
+  &--header {
+    padding: 10px;
+    ul {
+      li {
+        a {
+          position: relative;
+          padding: 8px;
+          text-transform: uppercase;
+          font-family: grandis;
+          display: block;
+          &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            width: 0;
+            transition: all 0.3s;
+            background-image: linear-gradient(
+              to left,
+              var(--gradient-start),
+              var(--gradient-end)
+            );
+          }
+        }
+
+        &.current_page_item a,
+        a:hover {
+          &:after {
+            width: 100%;
+          }
         }
       }
     }
   }
-
   &--footer {
-    display: flex;
-    flex-wrap: wrap;
-    li {
-      margin-right: 34px;
-      &:last-child {
+    ul {
+      flex-direction: column;
+      li {
+        margin-bottom: 30px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        a {
+          font-size: 20px;
+          font-weight: 400;
+          color: var(--white);
+          transition: all 0.3s;
+          &:hover {
+            color: var(--theme);
+          }
+        }
+      }
+    }
+  }
+  &--footer_second {
+    ul {
+      li {
+        margin-left: 60px;
         margin-right: 0;
+        &:first-child {
+          margin-left: 0;
+        }
+        a {
+          padding: 0;
+          font-size: 16px;
+          color: var(--white);
+          &:hover {
+            color: var(--theme);
+          }
+        }
       }
     }
   }
