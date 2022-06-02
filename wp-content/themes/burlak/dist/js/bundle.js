@@ -2411,16 +2411,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }, 0);
         }
       });
-      new _js_swiper_swiper_min_js__WEBPACK_IMPORTED_MODULE_2___default.a('.banners', {
+      new _js_swiper_swiper_min_js__WEBPACK_IMPORTED_MODULE_2___default.a('.gallery .swiper-container', {
         speed: 600,
-        slidesPerView: 'auto',
+        slidesPerView: 1,
         navigation: {
-          prevEl: '.banners .swiper-button-prev',
-          nextEl: '.banners .swiper-button-next'
+          prevEl: '.gallery .swiper-button-prev',
+          nextEl: '.gallery .swiper-button-next'
         },
         pagination: {
-          el: '.banners .swiper-pagination',
-          type: 'fraction'
+          el: '.gallery .swiper-pagination',
+          clickable: true
         },
         autoplay: {
           delay: 5000

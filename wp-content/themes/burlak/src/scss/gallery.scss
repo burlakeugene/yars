@@ -1,0 +1,26 @@
+.gallery {
+  overflow: hidden;
+  .swiper-container {
+    max-width: 700px;
+    width: 100%;
+    position: relative;
+    margin: 20px auto;
+  }
+  .swiper-wrapper {
+    align-items: center;
+  }
+  .swiper-slide {
+    padding: 0 40px;
+    opacity: 0.5;
+    transition: all 0.3s;
+    &-active {
+      opacity: 1;
+    }
+  }
+  .swiper-button-prev {
+    left: -20px;
+  }
+  .swiper-button-next {
+    right: -20px;
+  }
+}
