@@ -18,11 +18,14 @@ body.compensate-for-scrollbar{overflow:hidden}.fancybox-active{height:auto}.fanc
   --black: #000000;
   --gray: #292929;
   --gray-light: #B3B3B3;
+  --gray-section: #F1F1F1;
   --border-color: #BDBDBD;
   --theme: #1a54fe;
   --red: #ff0000;
   --container-wide-width: 1400px;
-  --container-width: 1200px; }
+  --container-width: 1200px;
+  --star-gray: #E4E4E4;
+  --star-gold: #EBC35C; }
 
 @-webkit-keyframes rotate {
   0% {
@@ -922,6 +925,9 @@ a,
 .cursor--pointer {
   cursor: progress !important; }
 
+.swiper-container {
+  overflow: hidden; }
+
 .swiper-button-prev,
 .swiper-button-next {
   width: 40px;
@@ -950,6 +956,12 @@ a,
   .swiper-button-prev:after,
   .swiper-button-next:after {
     display: none; }
+
+.swiper-button-prev {
+  left: 0; }
+
+.swiper-button-next {
+  right: 0; }
 
 .swiper-pagination {
   position: static; }
@@ -1026,6 +1038,8 @@ a,
       background-position: center 50%; }
     .section--dark-75 {
       background-position: center 75%; }
+  .section--gray {
+    background-color: var(--gray-section); }
 
 .video {
   position: relative;
@@ -1350,12 +1364,13 @@ a,
           align-items: center;
   text-transform: lowercase;
   color: var(--gray);
-  font-size: 13px;
-  font-weight: 500;
-  margin-right: 20px; }
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 1em; }
   .date .icon {
     width: 20px;
-    margin-right: 10px; }
+    margin-right: 10px;
+    display: none; }
     .date .icon svg {
       fill: var(--gray-medium); }
 
@@ -1807,6 +1822,28 @@ body.scrolled .fixed-button--top {
     opacity: 1;
     visibility: visible; }
 
+.rating {
+  position: relative;
+  width: 170px; }
+  .rating__layer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    color: var(--star-gray);
+    width: 170px; }
+    .rating__layer .icon {
+      -webkit-box-flex: 0;
+          -ms-flex: 0 0 20%;
+              flex: 0 0 20%;
+      padding: 0 2px; }
+    .rating__layer--active {
+      color: var(--star-gold); }
+    .rating__layer__value {
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      left: 0; }
+
 .home .section .form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2147,7 +2184,8 @@ body.scrolled .fixed-button--top {
     max-width: 700px;
     width: 100%;
     position: relative;
-    margin: 20px auto; }
+    margin: 20px auto;
+    overflow: visible; }
   .gallery .swiper-wrapper {
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -2163,6 +2201,59 @@ body.scrolled .fixed-button--top {
     left: -20px; }
   .gallery .swiper-button-next {
     right: -20px; }
+
+.review {
+  padding: 20px; }
+  .reviews {
+    position: relative;
+    padding: 0 30px; }
+    .reviews .swiper-button-prev,
+    .reviews .swiper-button-next {
+      color: var(--gray-light); }
+  .review__inner {
+    background-color: var(--background);
+    -webkit-box-shadow: 0 0 20px 0px var(--gray-light);
+            box-shadow: 0 0 20px 0px var(--gray-light);
+    padding: 25px; }
+  .review__header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start; }
+    .review__header__block {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+  .review__photo {
+    width: 95px;
+    height: 95px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 15px; }
+  .review__name {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1em;
+    margin-top: 5px; }
+  .review__content {
+    font-weight: 100;
+    margin: 15px 0; }
+
+.modal .review {
+  padding: 0; }
+  .modal .review__inner {
+    padding: 0;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+            box-shadow: none; }
 
 .about--index {
   display: -webkit-box;

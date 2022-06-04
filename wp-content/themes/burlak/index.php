@@ -18,6 +18,7 @@
       )
     )
   ));
+  get_template_part('reviews/index');
   get_template_part('gallery/block');
   my_get_template_part('sections/section', array(
     'header' => array(

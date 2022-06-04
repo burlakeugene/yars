@@ -9,9 +9,17 @@
       <?= $text ?>
     </div>
   <?php endif; ?>
-  <?php if($content): ?>
+  <?php if($content):
+    ?>
     <div class="modal__content">
-      <?= $content ?>
+      <?php
+        if($content['path']){
+          my_get_template_part($content['path'], $content['props']);
+        }
+        else{
+          echo $content;
+        }
+      ?>
     </div>
   <?php endif; ?>
 </div>

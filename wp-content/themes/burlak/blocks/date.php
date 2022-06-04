@@ -5,7 +5,7 @@
   <span>
     <?php
       $date = date_parse($value);
-      echo $date['day'].' '.getMonth($date['month'])
+      echo $date['day'].' '.getMonth($date['month']).' '.$date['year'];
     ?>
   </span>
 </div>

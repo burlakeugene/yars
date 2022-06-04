@@ -112,6 +112,24 @@ import { eventDecorator, declension } from './helpers';
           });
         });
 
+      let openReviews = document.querySelectorAll('[data-open-review]');
+      openReviews.length &&
+        openReviews.forEach((button) => {
+          eventDecorator({
+            target: button,
+            event: {
+              type: 'click',
+              body: (e) => {
+                e.preventDefault();
+                $.fancybox.open({
+                  src: button.dataset.openReview,
+                  type: 'inline',
+                });
+              },
+            },
+          });
+        });
+
       let dialogs = document.querySelectorAll('.dialog');
       dialogs.length &&
         dialogs.forEach((dialog) => {
@@ -337,6 +355,25 @@ import { eventDecorator, declension } from './helpers';
         navigation: {
           prevEl: '.gallery .swiper-button-prev',
           nextEl: '.gallery .swiper-button-next',
+        },
+        pagination: {
+          el: '.gallery .swiper-pagination',
+          clickable: true,
+        },
+        autoplay: {
+          delay: 5000,
+        },
+      });
+
+      new Swiper('.reviews .swiper-container', {
+        speed: 600,
+        slidesPerView: 1,
+        loop: true,
+        spaceBetween: 20,
+        autoHeight: true,
+        navigation: {
+          prevEl: '.reviews .swiper-button-prev',
+          nextEl: '.reviews .swiper-button-next',
         },
         pagination: {
           el: '.gallery .swiper-pagination',

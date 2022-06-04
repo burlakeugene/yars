@@ -2210,6 +2210,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }
         });
       });
+      var openReviews = document.querySelectorAll('[data-open-review]');
+      openReviews.length && openReviews.forEach(function (button) {
+        Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["eventDecorator"])({
+          target: button,
+          event: {
+            type: 'click',
+            body: function body(e) {
+              e.preventDefault();
+              $.fancybox.open({
+                src: button.dataset.openReview,
+                type: 'inline'
+              });
+            }
+          }
+        });
+      });
       var dialogs = document.querySelectorAll('.dialog');
       dialogs.length && dialogs.forEach(function (dialog) {
         if (dialogStatus) {
@@ -2417,6 +2433,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         navigation: {
           prevEl: '.gallery .swiper-button-prev',
           nextEl: '.gallery .swiper-button-next'
+        },
+        pagination: {
+          el: '.gallery .swiper-pagination',
+          clickable: true
+        },
+        autoplay: {
+          delay: 5000
+        }
+      });
+      new _js_swiper_swiper_min_js__WEBPACK_IMPORTED_MODULE_2___default.a('.reviews .swiper-container', {
+        speed: 600,
+        slidesPerView: 1,
+        loop: true,
+        spaceBetween: 20,
+        autoHeight: true,
+        navigation: {
+          prevEl: '.reviews .swiper-button-prev',
+          nextEl: '.reviews .swiper-button-next'
         },
         pagination: {
           el: '.gallery .swiper-pagination',

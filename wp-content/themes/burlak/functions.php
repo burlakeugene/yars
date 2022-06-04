@@ -45,6 +45,7 @@
 	add_image_size('lazy', 50, 50, false);
 	add_image_size('lazy-square', 50, 50, true);
 	add_image_size('gallery', 860, 550, true);
+	add_image_size('review', 200, 200, true);
 
 	function fix_wp_get_attachment_image_svg($image, $attachment_id, $size, $icon) {
 		if (is_array($image) && preg_match('/\.svg$/i', $image[0]) && $image[1] <= 1) {
@@ -239,15 +240,15 @@
 			)
 		);
 		register_post_type(
-			'questions',
+			'reviews',
 			array(
-			'label' => 'Вопросы и ответы',
+			'label' => 'Отзывы',
 			'labels' => array(
-				'menu_name' => 'Вопросы и ответы'
+				'menu_name' => 'Отзывы'
 			),
 			'public' => true,
 			'has_archive' => true,
-			'supports' => array('title', 'editor')
+			'supports' => array('thumbnail', 'title', 'editor', 'excerpt')
 		));
 	}
 	add_action('init', 'register_post_types_init');
@@ -331,4 +332,12 @@
 		}
 		return $classes;
 	}
+
+  function drawStars(){
+    $result = '';
+    for ($i = 1; $i <= 5; $i++):
+      my_get_template_part('icons/star');
+    endfor;
+  }
+
 ?>

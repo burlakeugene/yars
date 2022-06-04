@@ -8,6 +8,9 @@
   if($dark){
     $classes.= ' section--dark section--dark-'.$dark;
   }
+  if($gray){
+    $classes.= ' section--gray';
+  }
   if(!$render || $render === 1):
 ?>
 <section <?= $id ? 'id="'.$id.'"' : '' ?> class="<?= $classes ?>">
