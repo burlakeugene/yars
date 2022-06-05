@@ -13,12 +13,7 @@
     ?>
     <div class="modal__content">
       <?php
-        if($content['path']){
-          my_get_template_part($content['path'], $content['props']);
-        }
-        else{
-          echo $content;
-        }
+        my_get_template_part($content['path'], $content['props']);
       ?>
     </div>
   <?php endif; ?>

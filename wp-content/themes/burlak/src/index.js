@@ -380,16 +380,18 @@ import { eventDecorator, declension } from './helpers';
         },
       });
 
-      new Swiper('.videos .swiper-container', {
-        speed: 600,
-        slidesPerView: 1,
-        spaceBetween: 20,
-        autoHeight: true,
-        pagination: {
-          el: '.videos .swiper-pagination',
-          clickable: true,
-        },
-      });
+      setTimeout(() => {
+        new Swiper('.videos .swiper-container', {
+          speed: 600,
+          slidesPerView: 1,
+          spaceBetween: 20,
+          autoHeight: true,
+          pagination: {
+            el: '.videos .swiper-pagination',
+            clickable: true,
+          },
+        });
+      }, 0);
 
       let contentBlocks = document.querySelectorAll('.content-block');
       contentBlocks.length &&
@@ -409,8 +411,6 @@ import { eventDecorator, declension } from './helpers';
               slidesPerGroup: 2
             });
           }
-
-          console.log(contentBlockSlider);
 
           let slider = new Swiper(contentBlockSlider, {
             speed: 600,

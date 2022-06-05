@@ -58,7 +58,9 @@
 	<?php
 		my_get_template_part('blocks/modal', array(
 			'title' => 'Получить предложение',
-			'content' => load_template_part('forms/callback'),
+			'content' => array(
+        'path' => 'forms/callback',
+      ),
 			'id' => 'callback'
 		));
 		get_template_part('blocks/fixed-buttons');

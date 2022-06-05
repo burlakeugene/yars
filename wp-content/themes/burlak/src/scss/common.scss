@@ -453,13 +453,16 @@ a,
     background-size: cover;
     background-position: center 0;
     background-repeat: no-repeat;
-    &-25 {
+    &-20 {
       background-position: center 25%;
     }
-    &-50 {
+    &-40 {
       background-position: center 50%;
     }
-    &-75 {
+    &-60 {
+      background-position: center 75%;
+    }
+    &-80 {
       background-position: center 75%;
     }
   }

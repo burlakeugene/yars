@@ -2456,16 +2456,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           delay: 5000
         }
       });
-      new _js_swiper_swiper_min_js__WEBPACK_IMPORTED_MODULE_2___default.a('.videos .swiper-container', {
-        speed: 600,
-        slidesPerView: 1,
-        spaceBetween: 20,
-        autoHeight: true,
-        pagination: {
-          el: '.videos .swiper-pagination',
-          clickable: true
-        }
-      });
+      setTimeout(function () {
+        new _js_swiper_swiper_min_js__WEBPACK_IMPORTED_MODULE_2___default.a('.videos .swiper-container', {
+          speed: 600,
+          slidesPerView: 1,
+          spaceBetween: 20,
+          autoHeight: true,
+          pagination: {
+            el: '.videos .swiper-pagination',
+            clickable: true
+          }
+        });
+      }, 0);
       var contentBlocks = document.querySelectorAll('.content-block');
       contentBlocks.length && contentBlocks.forEach(function (contentBlock) {
         var contentBlockSlider = contentBlock.querySelector('.content-block__images__main'),
@@ -2480,7 +2482,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           });
         }
 
-        console.log(contentBlockSlider);
         var slider = new _js_swiper_swiper_min_js__WEBPACK_IMPORTED_MODULE_2___default.a(contentBlockSlider, {
           speed: 600,
           slidesPerView: 1,

@@ -1,21 +1,29 @@
-.about {
-  &--index {
-    display: flex;
-    align-items: center;
-    .about {
-      &__image {
-        flex: 0 0 50%;
-        min-width: 300px;
-        font-size: 0;
-        padding-right: 40px;
-      }
-      &__content{
-        flex: 1;
-        color: var(--white);
-        font-size: 16px;
-        line-height: 1.5em;
-        text-align: justify;
-      }
+.benefit {
+  flex: 0 0 25%;
+  width: 25%;
+  padding: 20px;
+  &__icon{
+    width: 80px;
+    font-size: 0;
+    margin: 0 auto;
+    img{
+      width: 100%;
+      height: auto;
     }
+  }
+  &__title{
+    margin: 20px 0;
+    font-size: 16px;
+    font-weight: 800;
+    text-align: center;
+  }
+  &__text{
+    font-weight: 300;
+    font-size: 14px;
+    text-align: center;
+  }
+  &s {
+    flex-wrap: wrap;
+    display: flex;
   }
 }

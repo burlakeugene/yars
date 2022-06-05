@@ -1,6 +1,6 @@
 <?php
   my_get_template_part('sections/section', array(
-    'dark' => 75,
+    'dark' => 80,
     'header' => array(
       'title' => 'Галерея',
       'line' => true,
