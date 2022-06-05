@@ -12,12 +12,27 @@
       'uppercase' => true
     ),
     'content' => array(
-      'path' => 'about/index',
+      'path' => 'blocks/content',
       'props' => array(
         'id' => 39
       )
     )
   ));
+  my_get_template_part('sections/section', array(
+    'header' => array(
+      'title' => get_the_title(70),
+      'line' => true,
+      'align' => 'right',
+      'uppercase' => true
+    ),
+    'content' => array(
+      'path' => 'blocks/content',
+      'props' => array(
+        'id' => 70
+      )
+    )
+  ));
+  get_template_part('videos/index');
   get_template_part('reviews/index');
   get_template_part('gallery/block');
   my_get_template_part('sections/section', array(

@@ -2452,13 +2452,51 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           prevEl: '.reviews .swiper-button-prev',
           nextEl: '.reviews .swiper-button-next'
         },
-        pagination: {
-          el: '.gallery .swiper-pagination',
-          clickable: true
-        },
         autoplay: {
           delay: 5000
         }
+      });
+      new _js_swiper_swiper_min_js__WEBPACK_IMPORTED_MODULE_2___default.a('.videos .swiper-container', {
+        speed: 600,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        autoHeight: true,
+        pagination: {
+          el: '.videos .swiper-pagination',
+          clickable: true
+        }
+      });
+      var contentBlocks = document.querySelectorAll('.content-block');
+      contentBlocks.length && contentBlocks.forEach(function (contentBlock) {
+        var contentBlockSlider = contentBlock.querySelector('.content-block__images__main'),
+            contentBlockThumbs = contentBlock.querySelector('.content-block__images__thumbs'),
+            thumbsSlider = null;
+
+        if (contentBlockThumbs) {
+          thumbsSlider = new _js_swiper_swiper_min_js__WEBPACK_IMPORTED_MODULE_2___default.a(contentBlockThumbs, {
+            spaceBetween: 15,
+            slidesPerView: 3,
+            slidesPerGroup: 2
+          });
+        }
+
+        console.log(contentBlockSlider);
+        var slider = new _js_swiper_swiper_min_js__WEBPACK_IMPORTED_MODULE_2___default.a(contentBlockSlider, {
+          speed: 600,
+          slidesPerView: 1,
+          spaceBetween: 15,
+          autoHeight: true,
+          navigation: {
+            prevEl: contentBlockSlider.querySelector('.swiper-button-prev'),
+            nextEl: contentBlockSlider.querySelector('.swiper-button-next')
+          },
+          autoplay: {
+            delay: 5000
+          },
+          thumbs: {
+            swiper: thumbsSlider
+          }
+        });
       });
       var maps = document.querySelectorAll('.map');
       maps.length && maps.forEach(function (map) {

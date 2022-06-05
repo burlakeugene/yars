@@ -375,14 +375,60 @@ import { eventDecorator, declension } from './helpers';
           prevEl: '.reviews .swiper-button-prev',
           nextEl: '.reviews .swiper-button-next',
         },
-        pagination: {
-          el: '.gallery .swiper-pagination',
-          clickable: true,
-        },
         autoplay: {
           delay: 5000,
         },
       });
+
+      new Swiper('.videos .swiper-container', {
+        speed: 600,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        autoHeight: true,
+        pagination: {
+          el: '.videos .swiper-pagination',
+          clickable: true,
+        },
+      });
+
+      let contentBlocks = document.querySelectorAll('.content-block');
+      contentBlocks.length &&
+        contentBlocks.forEach((contentBlock) => {
+          let contentBlockSlider = contentBlock.querySelector(
+              '.content-block__images__main'
+            ),
+            contentBlockThumbs = contentBlock.querySelector(
+              '.content-block__images__thumbs'
+            ),
+            thumbsSlider = null;
+
+          if (contentBlockThumbs) {
+            thumbsSlider = new Swiper(contentBlockThumbs, {
+              spaceBetween: 15,
+              slidesPerView: 3,
+              slidesPerGroup: 2
+            });
+          }
+
+          console.log(contentBlockSlider);
+
+          let slider = new Swiper(contentBlockSlider, {
+            speed: 600,
+            slidesPerView: 1,
+            spaceBetween: 15,
+            autoHeight: true,
+            navigation: {
+              prevEl: contentBlockSlider.querySelector('.swiper-button-prev'),
+              nextEl: contentBlockSlider.querySelector('.swiper-button-next'),
+            },
+            autoplay: {
+              delay: 5000,
+            },
+            thumbs: {
+              swiper: thumbsSlider,
+            },
+          });
+        });
 
       let maps = document.querySelectorAll('.map');
       maps.length &&

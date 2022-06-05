@@ -46,6 +46,7 @@
 	add_image_size('lazy-square', 50, 50, true);
 	add_image_size('gallery', 860, 550, true);
 	add_image_size('review', 200, 200, true);
+	add_image_size('slider-thumb', 180, 140, true);
 
 	function fix_wp_get_attachment_image_svg($image, $attachment_id, $size, $icon) {
 		if (is_array($image) && preg_match('/\.svg$/i', $image[0]) && $image[1] <= 1) {

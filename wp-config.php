@@ -78,13 +78,16 @@ $table_prefix = 'yars_';
  *
  * @link https://ru.wordpress.org/support/article/debugging-in-wordpress/
  */
-define( 'WP_DEBUG', false );
-
+// define( 'WP_DEBUG', false );
+define( 'WP_MEMORY_LIMIT', '128M');
 /* Произвольные значения добавляйте между этой строкой и надписью "дальше не редактируем". */
 
 
 
 /* Это всё, дальше не редактируем. Успехов! */
+
+// ini_set( 'upload_max_size' , '128M' );
+// ini_set( 'post_max_size', '128M');
 
 /** Абсолютный путь к директории WordPress. */
 if ( ! defined( 'ABSPATH' ) ) {
