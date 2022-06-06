@@ -9,9 +9,18 @@
       'line' => true
     ),
     'content' => array(
-      'path' => 'videos/slider',
+      'path' => 'slider/slider',
       'props' => [
-        'list' => $list
+        'classes' => 'videos',
+        'pagination' => true,
+        'list' => $list,
+        'item' => [
+          'path' => 'videos/item'
+        ],
+        'config' => [
+          'autoHeight' => true,
+          'spaceBetween' => 20,
+        ]
       ]
     )
   ));

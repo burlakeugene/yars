@@ -2442,32 +2442,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           delay: 5000
         }
       });
-      new _js_swiper_swiper_min_js__WEBPACK_IMPORTED_MODULE_2___default.a('.reviews .swiper-container', {
-        speed: 600,
-        slidesPerView: 1,
-        loop: true,
-        spaceBetween: 20,
-        autoHeight: true,
-        navigation: {
-          prevEl: '.reviews .swiper-button-prev',
-          nextEl: '.reviews .swiper-button-next'
-        },
-        autoplay: {
-          delay: 5000
-        }
+      var sliders = document.querySelectorAll('.slider');
+      sliders.length && sliders.forEach(function (slider) {
+        var config = JSON.parse(slider.dataset.config);
+        setTimeout(function () {
+          new _js_swiper_swiper_min_js__WEBPACK_IMPORTED_MODULE_2___default.a(slider.querySelector('.swiper-container'), _objectSpread(_objectSpread({}, config || {}), {}, {
+            speed: 600,
+            navigation: {
+              prevEl: slider.querySelector('.swiper-button-prev'),
+              nextEl: slider.querySelector('.swiper-button-next')
+            },
+            pagination: {
+              el: slider.querySelector('.swiper-pagination'),
+              clickable: true
+            }
+          }));
+        }, 0);
       });
-      setTimeout(function () {
-        new _js_swiper_swiper_min_js__WEBPACK_IMPORTED_MODULE_2___default.a('.videos .swiper-container', {
-          speed: 600,
-          slidesPerView: 1,
-          spaceBetween: 20,
-          autoHeight: true,
-          pagination: {
-            el: '.videos .swiper-pagination',
-            clickable: true
-          }
-        });
-      }, 0);
       var contentBlocks = document.querySelectorAll('.content-block');
       contentBlocks.length && contentBlocks.forEach(function (contentBlock) {
         var contentBlockSlider = contentBlock.querySelector('.content-block__images__main'),

@@ -18,9 +18,56 @@
       )
     )
   ));
-
   my_get_template_part('sections/section', array(
-    
+    'dark' => 20,
+    'header' => [
+      'title' => get_the_title(95),
+      'line' => true,
+      'uppercase' => true
+    ],
+    'content' => [
+      'path' => 'slider/slider',
+      'props' => [
+        'theme' => 'light',
+        'fullHeightSlide' => true,
+        'buttons' => true,
+        'pagination' => true,
+        'list' => get_field('list', 95),
+        'item' => [
+          'path' => 'slider/item--card'
+        ],
+        'config' => [
+          'slidesPerView' => 1,
+          'spaceBetween' => 24,
+          'autoplay' => [
+            'delay' => 5000,
+          ],
+          'breakpoints' => [
+            800 => [
+              'slidesPerView' => 2
+            ]
+          ]
+        ]
+      ]
+    ]
+  ));
+  my_get_template_part('sections/section', array(
+    'content' => [
+      'path' => 'slider/slider',
+      'props' => [
+        'buttons' => true,
+        'list' => get_field('list', 89),
+        'item' => [
+          'path' => 'slider/item--image'
+        ],
+        'config' => [
+          'slidesPerView' => 1,
+          'autoplay' => [
+            'delay' => 5000,
+          ],
+        ]
+      ]
+    ]
   ));
   my_get_template_part('sections/section', array(
     'dark' => 40,

@@ -15,17 +15,31 @@ $args = array(
 $list = get_posts($args);
 
 my_get_template_part('sections/section', array(
-    'gray' => true,
-    'header' => array(
-      'title' => $post_info->label,
-      'align' => 'right',
-      'line' => true,
-      'uppercase' => true
-    ),
-    'content' => array(
-      'path' => 'reviews/slider',
-      'props' => [
-        'list' => $list
+  'gray' => true,
+  'header' => array(
+    'title' => $post_info->label,
+    'align' => 'right',
+    'line' => true,
+    'uppercase' => true
+  ),
+  'content' => array(
+    'path' => 'slider/slider',
+    'props' => [
+      'classes' => 'reviews',
+      'list' => $list,
+      'pagination' => true,
+      'buttons' => true,
+      'item' => [
+        'path' => 'reviews/item'
+      ],
+      'config' => [
+        'autoHeight' => true,
+        'spaceBetween' => 20,
+        'loop' => true,
+        'autoplay' => [
+          'delay' => 5000,
+        ]
       ]
-    )
-  ));
+    ]
+  )
+));

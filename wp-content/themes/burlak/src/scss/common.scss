@@ -371,7 +371,7 @@ a,
 }
 
 .swiper-pagination-bullet {
-  background-color: var(--white);
+  background-color: var(--black);
   opacity: 0.5;
   width: 12px;
   height: 12px;
@@ -394,10 +394,10 @@ a,
 }
 
 .section {
-  padding: 50px 0;
+  padding: 40px 0;
   &__header {
     color: var(--black);
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     h2 {
       font-size: 60px;
       font-family: grandis;
@@ -1361,18 +1361,18 @@ body.scrolled {
     min-width: 300px;
     font-size: 0;
     padding-right: 40px;
-    .swiper-container{
+    .swiper-container {
       position: relative;
-      .swiper-button-prev{
+      .swiper-button-prev {
         left: 15px;
       }
-      .swiper-button-next{
+      .swiper-button-next {
         right: 15px;
       }
     }
-    &__thumbs{
+    &__thumbs {
       margin-top: 15px;
-      img{
+      img {
         width: 100%;
         height: auto;
       }
@@ -1383,6 +1383,88 @@ body.scrolled {
     font-size: 16px;
     line-height: 1.5em;
     text-align: justify;
+  }
+}
+
+.slider {
+  &--full-height-slide {
+    .swiper-wrapper {
+      align-items: inherit;
+    }
+    .swiper-slide {
+      height: auto;
+    }
+  }
+  .slider__inner {
+    position: relative;
+    padding: 0 50px;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: var(--black);
+  }
+  .swiper-slide {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .swiper-pagination {
+    margin-top: 20px;
+  }
+  &--light {
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: var(--white);
+    }
+    .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
+      background-color: var(--white);
+    }
+  }
+}
+
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  &__header {
+    position: relative;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    flex: 0 0 300px;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(84, 60, 60, 0.33);
+    }
+  }
+  &__title {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    font-size: 24px;
+    font-family: grandis;
+    font-weight: 800;
+    text-align: center;
+    padding: 10px;
+    color: var(--white);
+  }
+  &__content {
+    padding: 20px;
+    font-size: 14px;
+    color: var(--black);
+    background-color: var(--white);
+    flex: 1;
   }
 }
 

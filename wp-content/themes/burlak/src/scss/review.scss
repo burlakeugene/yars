@@ -2,11 +2,6 @@
   &s {
     position: relative;
     padding: 0 30px;
-
-    .swiper-button-prev,
-    .swiper-button-next {
-      color: var(--gray-light);
-    }
   }
   &__inner {
     background-color: var(--background);

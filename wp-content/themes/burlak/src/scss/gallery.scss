@@ -1,5 +1,8 @@
 .gallery {
   overflow: hidden;
+  .swiper-pagination-bullet:not(.swiper-pagination-bullet-active) {
+    background-color: var(--white);
+  }
   .swiper-container {
     max-width: 700px;
     width: 100%;

@@ -365,33 +365,26 @@ import { eventDecorator, declension } from './helpers';
         },
       });
 
-      new Swiper('.reviews .swiper-container', {
-        speed: 600,
-        slidesPerView: 1,
-        loop: true,
-        spaceBetween: 20,
-        autoHeight: true,
-        navigation: {
-          prevEl: '.reviews .swiper-button-prev',
-          nextEl: '.reviews .swiper-button-next',
-        },
-        autoplay: {
-          delay: 5000,
-        },
-      });
+      let sliders = document.querySelectorAll('.slider');
 
-      setTimeout(() => {
-        new Swiper('.videos .swiper-container', {
-          speed: 600,
-          slidesPerView: 1,
-          spaceBetween: 20,
-          autoHeight: true,
-          pagination: {
-            el: '.videos .swiper-pagination',
-            clickable: true,
-          },
+      sliders.length &&
+        sliders.forEach((slider) => {
+          let config = JSON.parse(slider.dataset.config);
+          setTimeout(() => {
+            new Swiper(slider.querySelector('.swiper-container'), {
+              ...(config || {}),
+              speed: 600,
+              navigation: {
+                prevEl: slider.querySelector('.swiper-button-prev'),
+                nextEl: slider.querySelector('.swiper-button-next'),
+              },
+              pagination: {
+                el: slider.querySelector('.swiper-pagination'),
+                clickable: true,
+              },
+            });
+          }, 0);
         });
-      }, 0);
 
       let contentBlocks = document.querySelectorAll('.content-block');
       contentBlocks.length &&
@@ -408,7 +401,7 @@ import { eventDecorator, declension } from './helpers';
             thumbsSlider = new Swiper(contentBlockThumbs, {
               spaceBetween: 15,
               slidesPerView: 3,
-              slidesPerGroup: 2
+              slidesPerGroup: 2,
             });
           }
 
