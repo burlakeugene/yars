@@ -3,6 +3,7 @@ $post_info = get_post_type_object('reviews');
 $args = array(
   'numberposts' => -1,
   'post_type' => $post_info->name,
+  'post_status' => 'publish',
   // 'meta_query'	=> array(
   //       'relation'		=> 'AND',
   //       array(

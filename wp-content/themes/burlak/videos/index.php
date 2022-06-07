@@ -12,6 +12,7 @@
       'path' => 'slider/slider',
       'props' => [
         'classes' => 'videos',
+        'theme' => 'light',
         'pagination' => true,
         'list' => $list,
         'item' => [

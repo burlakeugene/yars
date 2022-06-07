@@ -20,8 +20,8 @@
               </div>
             <?php endforeach; ?>
           </div>
+          <?php if($buttons) get_template_part('blocks/swiper-buttons') ?>
         </div>
-        <?php if($buttons) get_template_part('blocks/swiper-buttons') ?>
       </div>
       <?php if($pagination) get_template_part('blocks/swiper-pagination') ?>
     </div>

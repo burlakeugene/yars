@@ -47,6 +47,7 @@
 	add_image_size('gallery', 860, 550, true);
 	add_image_size('review', 200, 200, true);
 	add_image_size('slider-thumb', 180, 140, true);
+	add_image_size('product', 620, 640, true);
 
 	function fix_wp_get_attachment_image_svg($image, $attachment_id, $size, $icon) {
 		if (is_array($image) && preg_match('/\.svg$/i', $image[0]) && $image[1] <= 1) {
@@ -81,10 +82,6 @@
 			return;
     }
     if (!is_admin() && is_post_type_archive('articles')) {
-			$query->set('posts_per_page', 8);
-			return;
-    }
-    if (!is_admin() && is_post_type_archive('articles')) {
       $query->set('posts_per_page', -1);
       return;
   	}
@@ -108,6 +105,7 @@
     register_setting('theme-page-settings', 'viber');
     register_setting('theme-page-settings', 'whatsup');
     register_setting('theme-page-settings', 'theme');
+		register_setting('theme-page-settings', 'currency');
 	});
 
 	function theme_settings_page(){
@@ -161,6 +159,10 @@
       <label>
         <div>WhatsUp</div>
         <input name="whatsup" type="text" value="<?= esc_attr(get_option('whatsup')); ?>">
+      </label>
+			<label>
+        <div>Currency symbol</div>
+        <input name="currency" type="text" value="<?= esc_attr(get_option('currency')); ?>">
       </label>
       <?php submit_button(); ?>
     </form>
@@ -216,28 +218,27 @@
 
 	function register_post_types_init(){
 		register_post_type(
-			'banners',
-			array(
-				'label' => 'Баннер',
-				'labels' => array(
-					'menu_name' => 'Баннеры'
-				),
-				'public' => true,
-				'has_archive' => false,
-				'supports' => array('thumbnail', 'title', 'custom-fields')
-			)
-		);
-		register_post_type(
-				'articles',
+				'products',
 				array(
-				'label' => 'Рецепты и новости',
+				'label' => 'Модельный ряд',
 				'labels' => array(
-					'menu_name' => 'Рецепты и новости'
+					'menu_name' => 'Модельный ряд'
 				),
-				'taxonomies' => array('post_tag'),
+				'taxonomies' => array('products-cats'),
 				'public' => true,
 				'has_archive' => true,
-				'supports' => array('thumbnail', 'title', 'editor', 'excerpt', 'custom-fields')
+				'supports' => array('thumbnail', 'title', 'editor', 'excerpt')
+			)
+		);
+		register_taxonomy(
+			'products-cats',
+			'products',
+			array(
+				'label' => __('Categories'),
+				'rewrite' => array('slug' => 'products-category'),
+				'hierarchical' => true,
+				'update_count_callback' => '_update_post_term_count',
+				'query_var' => true,
 			)
 		);
 		register_post_type(

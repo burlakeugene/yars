@@ -2427,21 +2427,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           }, 0);
         }
       });
-      new _js_swiper_swiper_min_js__WEBPACK_IMPORTED_MODULE_2___default.a('.gallery .swiper-container', {
-        speed: 600,
-        slidesPerView: 1,
-        navigation: {
-          prevEl: '.gallery .swiper-button-prev',
-          nextEl: '.gallery .swiper-button-next'
-        },
-        pagination: {
-          el: '.gallery .swiper-pagination',
-          clickable: true
-        },
-        autoplay: {
-          delay: 5000
-        }
-      });
       var sliders = document.querySelectorAll('.slider');
       sliders.length && sliders.forEach(function (slider) {
         var config = JSON.parse(slider.dataset.config);
@@ -2694,6 +2679,33 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               }, 0);
             }
           }
+        });
+      });
+      var products = document.querySelectorAll('.products');
+      products.length && products.forEach(function (products) {
+        var tabsButtons = products.querySelectorAll('.products__tabs button'),
+            items = products.querySelectorAll('.product--item');
+        tabsButtons.length && tabsButtons.forEach(function (button) {
+          Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["eventDecorator"])({
+            target: button,
+            event: {
+              type: 'click',
+              body: function body(e) {
+                e.preventDefault();
+                var id = button.dataset.target;
+                if (button.classList.contains('active')) return;
+                tabsButtons.forEach(function (tabsButton) {
+                  tabsButton.classList.remove('active');
+                });
+                button.classList.add('active');
+                items.length && items.forEach(function (item) {
+                  var ids = item.dataset.categories,
+                      action = ids.indexOf(id) < 0 ? 'add' : 'remove';
+                  item.classList[action]('product--hidden');
+                });
+              }
+            }
+          });
         });
       });
       var forms = document.querySelectorAll('.wpcf7-form');

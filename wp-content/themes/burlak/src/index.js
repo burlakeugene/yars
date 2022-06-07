@@ -349,21 +349,6 @@ import { eventDecorator, declension } from './helpers';
           }, 0);
         },
       });
-      new Swiper('.gallery .swiper-container', {
-        speed: 600,
-        slidesPerView: 1,
-        navigation: {
-          prevEl: '.gallery .swiper-button-prev',
-          nextEl: '.gallery .swiper-button-next',
-        },
-        pagination: {
-          el: '.gallery .swiper-pagination',
-          clickable: true,
-        },
-        autoplay: {
-          delay: 5000,
-        },
-      });
 
       let sliders = document.querySelectorAll('.slider');
 
@@ -648,6 +633,37 @@ import { eventDecorator, declension } from './helpers';
               },
             },
           });
+        });
+
+      let products = document.querySelectorAll('.products');
+      products.length &&
+        products.forEach((products) => {
+          let tabsButtons = products.querySelectorAll('.products__tabs button'),
+            items = products.querySelectorAll('.product--item');
+          tabsButtons.length &&
+            tabsButtons.forEach((button) => {
+              eventDecorator({
+                target: button,
+                event: {
+                  type: 'click',
+                  body: (e) => {
+                    e.preventDefault();
+                    let id = button.dataset.target;
+                    if (button.classList.contains('active')) return;
+                    tabsButtons.forEach((tabsButton) => {
+                      tabsButton.classList.remove('active');
+                    });
+                    button.classList.add('active');
+                    items.length &&
+                      items.forEach((item) => {
+                        let ids = item.dataset.categories,
+                          action = ids.indexOf(id) < 0 ? 'add' : 'remove';
+                        item.classList[action]('product--hidden');
+                      });
+                  },
+                },
+              });
+            });
         });
 
       let forms = document.querySelectorAll('.wpcf7-form');

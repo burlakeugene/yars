@@ -19,6 +19,17 @@
     )
   ));
   my_get_template_part('sections/section', array(
+    'header' => array(
+      'title' => 'Модельный ряд',
+      'line' => true,
+      'uppercase' => true
+    ),
+    'content' => array(
+      'wide' => true,
+      'path' => 'products/index',
+    )
+  ));
+  my_get_template_part('sections/section', array(
     'dark' => 20,
     'header' => [
       'title' => get_the_title(95),
@@ -99,7 +110,7 @@
   ));
   get_template_part('videos/index');
   get_template_part('reviews/index');
-  get_template_part('gallery/block');
+  get_template_part('gallery/index');
   my_get_template_part('sections/section', array(
     'header' => array(
       'title' => 'У Вас остались вопросы?',
