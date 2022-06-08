@@ -1,19 +1,20 @@
-body{
+body {
   --background: #ffffff;
-  --gradient-start: #C6E6E6;
-  --gradient-end: #7B8EB0;
+  --gradient-start: #c6e6e6;
+  --gradient-end: #7b8eb0;
   --white: #ffffff;
   --black: #000000;
   --gray: #292929;
-  --gray-light: #B3B3B3;
-  --gray-section: #F1F1F1;
-  --border-color: #BDBDBD;
+  --gray-light: #b3b3b3;
+  --gray-section: #f1f1f1;
+  --border-color: #bdbdbd;
   --theme: #1a54fe;
+  --theme-light: #abadd8;
   --red: #ff0000;
   --container-wide-width: 1400px;
   --container-width: 1200px;
-  --star-gray: #E4E4E4;
-  --star-gold: #EBC35C;
+  --star-gray: #e4e4e4;
+  --star-gold: #ebc35c;
 }
 @import 'js/fancybox/fancybox.css';
 @import 'js/swiper/swiper.min.css';
@@ -33,7 +34,6 @@ body{
 @import 'scss/header';
 @import 'scss/contacts';
 
-
 @import 'scss/banners';
 @import 'scss/gallery';
 @import 'scss/review';
@@ -46,4 +46,3 @@ body{
 @import 'scss/products';
 
 @import 'scss/adaptive';
-

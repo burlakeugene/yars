@@ -8,7 +8,7 @@ import Map from './js/map.js';
 import Notic from 'notic';
 import CookieToggler from './js/cookieToggler';
 import Request from './js/request';
-import { eventDecorator, declension } from './helpers';
+import { eventDecorator, declension, formatNumber} from './helpers';
 
 (function ($) {
   if ($.fancybox) {
@@ -34,7 +34,7 @@ import { eventDecorator, declension } from './helpers';
             duration: milliseconds,
             easing: 'swing',
             step: function (now) {
-              $(this).text(Math.ceil(now));
+              $(this).text(formatNumber(Math.ceil(now), ' '));
             },
           }
         );
@@ -163,6 +163,15 @@ import { eventDecorator, declension } from './helpers';
             },
           });
         });
+
+      new view('.countdown', {
+        in: (item) => {
+          runCount(item);
+        },
+        out: (item) => {
+          clearCount(item);
+        },
+      });
 
       let fieldsInit = () => {
         let fields = document.querySelectorAll('.field');

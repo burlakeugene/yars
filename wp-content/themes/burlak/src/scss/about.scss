@@ -2,22 +2,22 @@
   flex: 0 0 25%;
   width: 25%;
   padding: 20px;
-  &__icon{
+  &__icon {
     width: 80px;
     font-size: 0;
     margin: 0 auto;
-    img{
+    img {
       width: 100%;
       height: auto;
     }
   }
-  &__title{
+  &__title {
     margin: 20px 0;
     font-size: 16px;
     font-weight: 800;
     text-align: center;
   }
-  &__text{
+  &__text {
     font-weight: 300;
     font-size: 14px;
     text-align: center;
@@ -25,5 +25,54 @@
   &s {
     flex-wrap: wrap;
     display: flex;
+  }
+}
+
+.number {
+  &s {
+    display: flex;
+    justify-content: center;
+  }
+  text-align: center;
+  padding: 20px 30px;
+  position: relative;
+  &__value {
+    color: var(--gradient-end);
+    font-family: grandis;
+    font-weight: 700;
+    font-size: 80px;
+    font-size: 72px;
+    background: linear-gradient(
+      to top,
+      var(--gradient-end),
+      var(--gradient-start)
+    );
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  &__text {
+    font-size: 22px;
+  }
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: var(--theme-light);
+    height: 100%;
+    width: 1px;
+    top: 0;
+    right: 0;
+  }
+  &:last-child {
+    &:after {
+      display: none;
+    }
+  }
+}
+
+.about__text{
+  &[data-columns="2"]{
+    columns: 2;
+    column-gap: 40px;
   }
 }

@@ -15,3 +15,14 @@ export const declension = (
       : array[value % 10 < 5 ? value % 10 : 5]
   ];
 };
+
+
+export const formatNumber = (value, deliverSymbol = ',', dotSymbol = '.') => {
+  value = value.toString();
+  return value
+    .replace(
+      /\./.test(value) ? /(\d)(?=(?:\d{3})+\.)/g : /(\d)(?=(?:\d{3})+$)/g,
+      '$1' + deliverSymbol
+    )
+    .replace('.', dotSymbol);
+};

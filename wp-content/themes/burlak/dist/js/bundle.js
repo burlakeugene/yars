@@ -2049,13 +2049,14 @@ module.exports = function (module) {
 /*!************************!*\
   !*** ./src/helpers.js ***!
   \************************/
-/*! exports provided: eventDecorator, declension */
+/*! exports provided: eventDecorator, declension, formatNumber */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "eventDecorator", function() { return eventDecorator; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "declension", function() { return declension; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatNumber", function() { return formatNumber; });
 var eventDecorator = function eventDecorator(_ref) {
   var target = _ref.target,
       event = _ref.event;
@@ -2068,6 +2069,12 @@ var declension = function declension() {
   var words = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : ['товар', 'товара', 'товаров'];
   var array = [2, 0, 1, 1, 1, 2];
   return words[value % 100 > 4 && value % 100 < 20 ? 2 : array[value % 10 < 5 ? value % 10 : 5]];
+};
+var formatNumber = function formatNumber(value) {
+  var deliverSymbol = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : ',';
+  var dotSymbol = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '.';
+  value = value.toString();
+  return value.replace(/\./.test(value) ? /(\d)(?=(?:\d{3})+\.)/g : /(\d)(?=(?:\d{3})+$)/g, '$1' + deliverSymbol).replace('.', dotSymbol);
 };
 
 /***/ }),
@@ -2136,7 +2143,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         duration: milliseconds,
         easing: 'swing',
         step: function step(now) {
-          $(this).text(Math.ceil(now));
+          $(this).text(Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["formatNumber"])(Math.ceil(now), ' '));
         }
       });
     }
@@ -2258,6 +2265,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           }
         });
+      });
+      new view('.countdown', {
+        in: function _in(item) {
+          runCount(item);
+        },
+        out: function out(item) {
+          clearCount(item);
+        }
       });
 
       var fieldsInit = function fieldsInit() {
