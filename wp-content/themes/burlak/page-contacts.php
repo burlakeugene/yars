@@ -1,7 +1,7 @@
 <?php
   get_header();
   get_template_part('page/banners');
-  // get_template_part('blocks/breadcrumbs');
+
   my_get_template_part('sections/section', array(
     'header' => array(
       'title' => get_the_title(),
@@ -10,7 +10,7 @@
       'line' => true
     ),
     'content' => [
-      'path' => 'page/content'
+      'path' => 'contacts/page'
     ]
   ));
   get_footer();

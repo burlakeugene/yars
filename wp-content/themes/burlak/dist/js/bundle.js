@@ -8687,7 +8687,7 @@ var Map = /*#__PURE__*/function () {
       this.map = new ymaps.Map(element.id, {
         center: element.dataset.center ? element.dataset.center.split(',') : [45.25, 34.3],
         controls: [],
-        zoom: 14
+        zoom: 12
       });
       this.map.margin.setDefaultMargin(40);
       this.clusterer = new ymaps.Clusterer({

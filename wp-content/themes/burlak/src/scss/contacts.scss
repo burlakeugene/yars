@@ -1,16 +1,17 @@
 .contacts {
   display: flex;
+  box-shadow: 0 0 39px 0 rgba(0, 0, 0, 0.23);
   &__map {
-    flex: 1;
-    min-height: 760px;
+    flex: 2;
+    min-height: 300px;
   }
   &__content {
-    flex: 0 0 550px;
-    padding: 50px;
-    background-color: var(--background-second);
-    line-height: 1em;
+    flex: 1;
+    padding: 30px;
+    background-color: var(--background);
+    font-family: grandis;
     &__block {
-      margin-bottom: 50px;
+      margin-bottom: 30px;
       color: var(--gray-semidark);
       font-size: 16px;
       &:last-child {
@@ -23,22 +24,31 @@
           margin-bottom: 0;
         }
       }
+      &__text {
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 28px;
+        line-height: 1em;
+      }
       &__value {
-        line-height: 1.5em;
-        font-family: druk;
-        font-size: 24px;
+        font-size: 18px;
+        position: relative;
+        padding-left: 40px;
+        .icon {
+          position: absolute;
+          top: -2px;
+          left: 0;
+          width: 28px;
+          color: #ADAFBA;
+        }
         &,
         a {
           color: var(--gray-dark);
         }
         a {
           transition: all 0.3s;
-          &[href^='mailto:'] {
-            text-decoration: underline;
-          }
           &:hover {
             color: var(--theme);
-            text-decoration: none;
           }
         }
       }

@@ -41,6 +41,7 @@
   .swiper-pagination {
     position: absolute;
     bottom: 20px;
+    z-index: 2;
     margin-top: 0;
   }
   .slider__inner {

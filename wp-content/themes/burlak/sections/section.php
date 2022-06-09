@@ -19,10 +19,11 @@
       $title = $header['title'];
       $link = $header['link'];
       $align = $header['align'] ? $header['align'] : 'center';
+      $tag = $header['tag'] ? $header['tag'] : 'h2';
       ?>
       <div class="section__header section__header--<?= $align ?> <?= $header['uppercase'] ? 'section__header--uppercase' : ''?> <?= $header['line'] ? 'section__header--line' : ''?> <?= $header['mini'] ? 'section__header--mini' : '' ?>">
         <?php if($title): ?>
-          <h2><?= $title ?></h2>
+          <<?= $tag ?>><?= $title ?></<?= $tag ?>>
         <?php endif; ?>
         <?php if($link):
           $buttonsClasses = 'button';
