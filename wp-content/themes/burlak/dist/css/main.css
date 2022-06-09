@@ -568,11 +568,11 @@ select {
   font-size: 16px;
   line-height: 1.5em; }
   .content a {
-    color: var(--red);
+    color: var(--theme);
     -webkit-transition: all 0.3s;
     transition: all 0.3s; }
     .content a:hover {
-      color: var(--orange); }
+      color: var(--black); }
   .content ul,
   .content ol {
     padding: 0;
