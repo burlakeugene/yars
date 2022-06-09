@@ -4,14 +4,14 @@
     <div class="tabs">
       <div class="tabs__buttons">
         <?php foreach($items as $index => $tab): ?>
-          <a data-tab-id="<?= $index ?>" class="tabs__button <?= $index == $active ? 'tabs__button--active' : '' ?>">
+          <a data-tab-id="<?= $index ?>" class="tabs__button" <?= $index == $active ? 'data-active' : '' ?>>
             <?= $tab['label'] ?>
           </a>
         <?php endforeach; ?>
       </div>
       <div class="tabs__contents">
         <?php foreach($items as $index => $tab):?>
-          <div data-tab-id="<?= $index ?>" class="tabs__content <?= $index == $active ? 'tabs__content--active' : '' ?>">
+          <div data-tab-id="<?= $index ?>" class="tabs__content" <?= $index == $active ? 'data-active' : '' ?>>
             <?= $tab['content'] ?>
           </div>
         <?php endforeach; ?>

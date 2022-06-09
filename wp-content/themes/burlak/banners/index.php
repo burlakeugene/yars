@@ -1,7 +1,7 @@
 <?php
 if($data):
   ?>
-  <div class="banner banner--index" style="background-image: url(<?= $data['image']['url'] ?>)">
+  <div class="banner banner--index" style="background-image: url(<?= $data['image']['sizes']['banner'] ?>)">
     <div class="container container--wide">
       <div class="banner__title">
         <h1>

@@ -8,7 +8,7 @@ import Map from './js/map.js';
 import Notic from 'notic';
 import CookieToggler from './js/cookieToggler';
 import Request from './js/request';
-import { eventDecorator, declension, formatNumber} from './helpers';
+import { eventDecorator, declension, formatNumber } from './helpers';
 
 (function ($) {
   if ($.fancybox) {
@@ -301,14 +301,16 @@ import { eventDecorator, declension, formatNumber} from './helpers';
                   .querySelectorAll('.tabs__content');
               if (!name) return;
               buttons.forEach((button, index) => {
-                button.classList.remove('tabs__button--active');
+                button.removeAttribute('data-active');
+                // button.classList.remove('tabs__button--active');
               });
-              e.target.classList.add('tabs__button--active');
+              e.target.setAttribute('data-active', '');
+
               targets.forEach((target, index) => {
                 if (target.getAttribute('data-tab-id') === name) {
-                  target.classList.add('tabs__content--active');
+                  target.setAttribute('data-active', '');
                 } else {
-                  target.classList.remove('tabs__content--active');
+                  target.removeAttribute('data-active');
                 }
               });
             });
@@ -377,7 +379,7 @@ import { eventDecorator, declension, formatNumber} from './helpers';
                 clickable: true,
               },
             });
-          }, 0);
+          }, 100);
         });
 
       let contentBlocks = document.querySelectorAll('.content-block');
@@ -658,11 +660,11 @@ import { eventDecorator, declension, formatNumber} from './helpers';
                   body: (e) => {
                     e.preventDefault();
                     let id = button.dataset.target;
-                    if (button.classList.contains('active')) return;
+                    if (button.hasAttribute('data-active')) return;
                     tabsButtons.forEach((tabsButton) => {
-                      tabsButton.classList.remove('active');
+                      tabsButton.removeAttribute('data-active');
                     });
-                    button.classList.add('active');
+                    button.setAttribute('data-active', '');
                     items.length &&
                       items.forEach((item) => {
                         let ids = item.dataset.categories,

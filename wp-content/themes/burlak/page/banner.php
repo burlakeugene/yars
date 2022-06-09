@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: url(<?= $data['image']['sizes']['large'] ?>)">
+<div class="banner" style="background-image: url(<?= $data['image']['sizes']['banner'] ?>)">
   <div class="banner__content">
     <?php if($data['title']): ?>
       <div class="banner__title">

@@ -1017,7 +1017,8 @@ a,
   .section__header {
     color: var(--black);
     margin-bottom: 40px; }
-    .section__header h1, .section__header h2 {
+    .section__header h1,
+    .section__header h2 {
       font-size: 60px;
       font-family: grandis;
       font-weight: 800;
@@ -1025,10 +1026,12 @@ a,
       display: inline-block; }
     .section__header--uppercase {
       text-transform: uppercase; }
-    .section__header--line h1, .section__header--line h2 {
+    .section__header--line h1,
+    .section__header--line h2 {
       position: relative;
       padding-left: 35px; }
-      .section__header--line h1:before, .section__header--line h2:before {
+      .section__header--line h1:before,
+      .section__header--line h2:before {
         content: '';
         display: block;
         position: absolute;
@@ -1042,10 +1045,12 @@ a,
       text-align: center; }
     .section__header--right {
       text-align: right; }
-      .section__header--right.section__header--line h1, .section__header--right.section__header--line h2 {
+      .section__header--right.section__header--line h1,
+      .section__header--right.section__header--line h2 {
         padding-left: 0;
         padding-right: 35px; }
-        .section__header--right.section__header--line h1:before, .section__header--right.section__header--line h2:before {
+        .section__header--right.section__header--line h1:before,
+        .section__header--right.section__header--line h2:before {
           left: auto;
           right: 0; }
   .section--dark {
@@ -1439,37 +1444,36 @@ a,
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border-bottom: 1px solid var(--border-color); }
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 20px;
+  gap: 20px; }
 
 .tabs__button {
-  margin-right: 50px;
-  padding: 10px 0;
-  line-height: 1em;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--red);
   position: relative;
+  padding: 8px;
+  text-transform: uppercase;
+  font-family: grandis;
   display: block;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  cursor: pointer; }
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 24px; }
   .tabs__button:after {
     content: '';
     display: block;
     position: absolute;
-    width: 100%;
-    height: 0;
+    bottom: 0;
     left: 0;
-    bottom: -1px;
-    background-color: var(--red);
-    -webkit-transition: all 0.1s;
-    transition: all 0.1s; }
-  .tabs__button:hover, .tabs__button--active {
-    color: var(--black); }
-  .tabs__button--active:after {
-    height: 2px; }
-  .tabs__button:last-child {
-    margin-right: 0; }
+    height: 3px;
+    width: 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    background-image: -webkit-gradient(linear, right top, left top, from(var(--gradient-start)), to(var(--gradient-end)));
+    background-image: linear-gradient(to left, var(--gradient-start), var(--gradient-end)); }
+  .tabs__button:hover:after, .tabs__button[data-active]:after {
+    width: 100%; }
 
 .tabs__contents {
   position: relative;
@@ -1480,7 +1484,7 @@ a,
   visibility: hidden;
   position: absolute;
   width: 100%; }
-  .tabs__content--active {
+  .tabs__content[data-active] {
     opacity: 1;
     visibility: visible;
     position: static; }
@@ -1589,16 +1593,6 @@ a,
   .quote__text {
     margin-top: 20px;
     font-size: 16px; }
-
-.not-found {
-  text-align: center;
-  font-weight: 700;
-  padding: 40px 0;
-  font-size: 15px; }
-  .not-found h1 {
-    font-size: 82px;
-    font-weight: 700;
-    color: var(--theme); }
 
 body .notic-loading svg {
   stroke: var(--theme); }
@@ -1897,7 +1891,7 @@ body.scrolled .fixed-button--top {
   width: 100%;
   height: auto; }
 
-.slider .swiper-pagination {
+.slider .swiper-pagination:not(:empty) {
   margin-top: 20px; }
 
 .slider--light .swiper-button-next,
@@ -1976,6 +1970,20 @@ body.scrolled .fixed-button--top {
               flex: 0 0 100%; }
     .section .form__item__submit {
       width: 100%; }
+
+.not-found {
+  text-align: center;
+  font-weight: 800;
+  padding: 40px 0;
+  font-size: 18px; }
+  .not-found h1 {
+    font-size: 100px;
+    font-weight: 800;
+    font-family: grandis;
+    color: var(--black);
+    line-height: 1em;
+    position: relative;
+    display: inline-block; }
 
 .preloader {
   position: fixed;
@@ -2612,40 +2620,6 @@ body.scrolled .fixed-button--top {
       .navigation--footer_second ul li a:hover {
         color: var(--theme); }
 
-.products__tabs {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  margin-bottom: 50px;
-  gap: 20px; }
-  .products__tabs button {
-    position: relative;
-    padding: 8px;
-    text-transform: uppercase;
-    font-family: grandis;
-    display: block;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    font-size: 24px; }
-    .products__tabs button:after {
-      content: '';
-      display: block;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: 5px;
-      width: 0;
-      -webkit-transition: all 0.3s;
-      transition: all 0.3s;
-      background-image: -webkit-gradient(linear, right top, left top, from(var(--gradient-start)), to(var(--gradient-end)));
-      background-image: linear-gradient(to left, var(--gradient-start), var(--gradient-end)); }
-    .products__tabs button:hover:after, .products__tabs button.active:after {
-      width: 100%; }
-
 .products__list {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2661,6 +2635,23 @@ body.scrolled .fixed-button--top {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 calc(33.3333% - 40px / 3);
             flex: 0 0 calc(33.3333% - 40px / 3); }
+
+.attribute {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 18px;
+  line-height: 1em; }
+  .attributes {
+    background-color: var(--white);
+    color: var(--black); }
+  .attribute:nth-child(odd) {
+    background-color: #EDF0F5; }
 
 .product__title {
   font-size: 34px;

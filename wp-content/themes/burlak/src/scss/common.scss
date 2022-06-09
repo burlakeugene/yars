@@ -46,7 +46,7 @@ html {
 }
 
 body,
-html{
+html {
   height: 100%;
 }
 
@@ -411,7 +411,8 @@ a,
   &__header {
     color: var(--black);
     margin-bottom: 40px;
-    h1, h2 {
+    h1,
+    h2 {
       font-size: 60px;
       font-family: grandis;
       font-weight: 800;
@@ -422,7 +423,8 @@ a,
       text-transform: uppercase;
     }
     &--line {
-      h1, h2 {
+      h1,
+      h2 {
         position: relative;
         padding-left: 35px;
         &:before {
@@ -446,7 +448,8 @@ a,
     &--right {
       text-align: right;
       &.section__header--line {
-        h1, h2 {
+        h1,
+        h2 {
           padding-left: 0;
           padding-right: 35px;
           &:before {
@@ -873,41 +876,40 @@ a,
 .tabs {
   &__buttons {
     display: flex;
-    border-bottom: 1px solid var(--border-color);
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 20px;
   }
   &__button {
-    margin-right: 50px;
-    padding: 10px 0;
-    line-height: 1em;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--red);
     position: relative;
+    padding: 8px;
+    text-transform: uppercase;
+    font-family: grandis;
     display: block;
-    transition: all 0.3s;
+    border: none;
+    background: transparent;
     cursor: pointer;
+    font-size: 24px;
     &:after {
       content: '';
       display: block;
       position: absolute;
-      width: 100%;
-      height: 0;
+      bottom: 0;
       left: 0;
-      bottom: -1px;
-      background-color: var(--red);
-      transition: all 0.1s;
+      height: 3px;
+      width: 0;
+      transition: all 0.3s;
+      background-image: linear-gradient(
+        to left,
+        var(--gradient-start),
+        var(--gradient-end)
+      );
     }
     &:hover,
-    &--active {
-      color: var(--black);
-    }
-    &--active {
+    &[data-active] {
       &:after {
-        height: 2px;
+        width: 100%;
       }
-    }
-    &:last-child {
-      margin-right: 0;
     }
   }
   &__contents {
@@ -919,7 +921,7 @@ a,
     visibility: hidden;
     position: absolute;
     width: 100%;
-    &--active {
+    &[data-active] {
       opacity: 1;
       visibility: visible;
       position: static;
@@ -1050,18 +1052,6 @@ a,
   &__text {
     margin-top: 20px;
     font-size: 16px;
-  }
-}
-
-.not-found {
-  text-align: center;
-  font-weight: 700;
-  padding: 40px 0;
-  font-size: 15px;
-  h1 {
-    font-size: 82px;
-    font-weight: 700;
-    color: var(--theme);
   }
 }
 
@@ -1389,7 +1379,7 @@ body.scrolled {
       height: auto;
     }
   }
-  .swiper-pagination {
+  .swiper-pagination:not(:empty){
     margin-top: 20px;
   }
   &--light {

@@ -11,12 +11,12 @@
 ?>
 
 <div class="products">
-  <div class="products__tabs">
-    <button data-target="" class="active">
+  <div class="products__tabs tabs__buttons">
+    <button data-target="" class="tabs__button" data-active>
       Все модели
     </button>
     <?php foreach($categories as $category): ?>
-      <button data-target="<?= $category->term_id ?>">
+      <button class="tabs__button" data-target="<?= $category->term_id ?>">
         <?= $category->name ?>
       </button>
     <?php endforeach; ?>

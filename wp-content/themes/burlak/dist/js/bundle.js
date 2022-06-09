@@ -2392,14 +2392,14 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                 targets = e.target.closest('.tabs').querySelectorAll('.tabs__content');
             if (!name) return;
             buttons.forEach(function (button, index) {
-              button.classList.remove('tabs__button--active');
+              button.removeAttribute('data-active'); // button.classList.remove('tabs__button--active');
             });
-            e.target.classList.add('tabs__button--active');
+            e.target.setAttribute('data-active', '');
             targets.forEach(function (target, index) {
               if (target.getAttribute('data-tab-id') === name) {
-                target.classList.add('tabs__content--active');
+                target.setAttribute('data-active', '');
               } else {
-                target.classList.remove('tabs__content--active');
+                target.removeAttribute('data-active');
               }
             });
           });
@@ -2457,7 +2457,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               clickable: true
             }
           }));
-        }, 0);
+        }, 100);
       });
       var contentBlocks = document.querySelectorAll('.content-block');
       contentBlocks.length && contentBlocks.forEach(function (contentBlock) {
@@ -2708,11 +2708,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
               body: function body(e) {
                 e.preventDefault();
                 var id = button.dataset.target;
-                if (button.classList.contains('active')) return;
+                if (button.hasAttribute('data-active')) return;
                 tabsButtons.forEach(function (tabsButton) {
-                  tabsButton.classList.remove('active');
+                  tabsButton.removeAttribute('data-active');
                 });
-                button.classList.add('active');
+                button.setAttribute('data-active', '');
                 items.length && items.forEach(function (item) {
                   var ids = item.dataset.categories,
                       action = ids.indexOf(id) < 0 ? 'add' : 'remove';

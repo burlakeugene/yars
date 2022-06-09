@@ -48,6 +48,7 @@
 	add_image_size('review', 200, 200, true);
 	add_image_size('slider-thumb', 180, 140, true);
 	add_image_size('product', 620, 640, true);
+	add_image_size('banner', 1900, 900, true);
 
 	function fix_wp_get_attachment_image_svg($image, $attachment_id, $size, $icon) {
 		if (is_array($image) && preg_match('/\.svg$/i', $image[0]) && $image[1] <= 1) {

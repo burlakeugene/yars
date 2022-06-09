@@ -1,42 +1,4 @@
 .products {
-  &__tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50px;
-    gap: 20px;
-    button {
-      position: relative;
-      padding: 8px;
-      text-transform: uppercase;
-      font-family: grandis;
-      display: block;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      font-size: 24px;
-      &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        height: 5px;
-        width: 0;
-        transition: all 0.3s;
-        background-image: linear-gradient(
-          to left,
-          var(--gradient-start),
-          var(--gradient-end)
-        );
-      }
-      &:hover,
-      &.active {
-        &:after {
-          width: 100%;
-        }
-      }
-    }
-  }
   &__list {
     display: flex;
     justify-content: center;
@@ -46,6 +8,22 @@
     .product {
       flex: 0 0 calc(33.3333% - 40px / 3);
     }
+  }
+}
+
+.attribute {
+  &s {
+    background-color: var(--white);
+    color: var(--black);
+  }
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 18px;
+  line-height: 1em;
+  &:nth-child(odd){
+    background-color: #EDF0F5;
   }
 }
 
