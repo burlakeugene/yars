@@ -4,7 +4,6 @@
   $name = $data->post_title;
   $price = get_field('price', $id);
   $currency = get_option('currency');
-
 ?>
 
 <div class="product product--item" style="background-image: url(<?= $image ?>)" data-categories="<?=

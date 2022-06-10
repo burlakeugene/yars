@@ -1,6 +1,11 @@
 <?php
   get_template_part('page/banners');
   my_get_template_part('sections/section', [
+    'content' => [
+      'path' => 'products/info'
+    ]
+  ]);
+  my_get_template_part('sections/section', [
     'dark' => 20,
     'header' => [
       'title' => 'Характеристики',
