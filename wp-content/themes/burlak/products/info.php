@@ -20,6 +20,7 @@
     </div>
     <div class="product__footer">
       <button class="button" data-callback="<?= get_the_title().', цвет: '.$color ?>">Оставить заявку</button>
+      <button class="button button--ghost" data-callback="Дополнительное оборудывание">Дополнительное оборудывание</button>
     </div>
   </div>
 </div>
