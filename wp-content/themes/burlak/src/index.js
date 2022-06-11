@@ -677,6 +677,72 @@ import { eventDecorator, declension, formatNumber } from './helpers';
             });
         });
 
+      const setActiveColor = ({ container, index, slider, buttons }) => {
+        let value = '';
+        slider.slideTo(index);
+        buttons.forEach((button, buttonIndex) => {
+          if (index === buttonIndex) {
+            button.setAttribute('data-active', '');
+            value = button.dataset.value;
+          } else {
+            button.removeAttribute('data-active');
+          }
+        });
+        let parent = container.closest('.product'),
+          title = parent.dataset.title;
+        parent.querySelectorAll('[data-callback]').forEach((button) => {
+          button.setAttribute('data-callback', title + ', цвет:' + value);
+        });
+      };
+      let productColors = document.querySelectorAll('.product__colors');
+      productColors.length &&
+        productColors.forEach((product) => {
+          let sliderTarget = product.querySelector('.product__colors__slider'),
+            buttons = product.querySelectorAll(
+              '.product__colors__panel button'
+            );
+          if (sliderTarget) {
+            let slider = new Swiper(
+              sliderTarget.querySelector('.swiper-container'),
+              {
+                speed: 600,
+                slidesPerView: 1,
+                spaceBetween: 15,
+                autoHeight: true,
+                navigation: {
+                  prevEl: sliderTarget.querySelector('.swiper-button-prev'),
+                  nextEl: sliderTarget.querySelector('.swiper-button-next'),
+                },
+              }
+            );
+            slider.on('slideChange', (slider) => {
+              setActiveColor({
+                container: product,
+                index: slider.activeIndex,
+                slider,
+                buttons,
+              });
+            });
+            buttons.forEach((button, index) => {
+              eventDecorator({
+                target: button,
+                event: {
+                  type: 'click',
+                  body: (e) => {
+                    e.preventDefault();
+                    setActiveColor({
+                      container: product,
+                      index,
+                      slider,
+                      buttons,
+                    });
+                  },
+                },
+              });
+            });
+          }
+        });
+
       let forms = document.querySelectorAll('.wpcf7-form');
       window.wpcf7 &&
         window.wpcf7.init &&

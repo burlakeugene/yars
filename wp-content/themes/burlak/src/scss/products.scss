@@ -22,15 +22,14 @@
   padding: 15px 20px;
   font-size: 18px;
   line-height: 1em;
-  &:nth-child(odd){
-    background-color: #EDF0F5;
+  &:nth-child(odd) {
+    background-color: #edf0f5;
   }
 }
 
 .product {
   &__title {
     font-size: 34px;
-    color: var(--black);
     position: relative;
     padding-left: 25px;
     font-family: grandis;
@@ -52,12 +51,13 @@
     }
   }
   &__price {
-    color: var(--white);
-    border: 3px solid var(--white);
     font-weight: 700;
     font-size: 20px;
-    padding: 9px;
     line-height: 1em;
+    margin: 10px 0 20px 0;
+  }
+  &__description{
+    margin: 20px 0;
   }
   &__footer {
     display: flex;
@@ -87,6 +87,7 @@
     .product {
       &__inner {
         position: absolute;
+        color: var(--white);
         bottom: 0;
         left: 0;
         width: 100%;
@@ -94,16 +95,86 @@
         z-index: 2;
       }
       &__title {
-        color: var(--white);
         padding-left: 0;
         margin-bottom: 25px;
         &:before {
           display: none;
         }
       }
+      &__price {
+        padding: 9px;
+        border: 3px solid var(--white);
+        margin: 0;
+      }
     }
   }
   &--hidden {
     display: none;
+  }
+  &__info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    &__side {
+      flex: 0 0 calc(50% - 25px);
+      width: calc(50% - 25px);
+    }
+  }
+}
+
+.product__colors{
+  &__slider{
+    position: relative;
+    padding:  0 50px;
+    .swiper-button-prev, .swiper-button-next{
+      color: var(--black);
+    }
+    .swiper-slide{
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  &__panel{
+    padding-left: 50px;
+    font-size: 0;
+    &__title{
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+    button{
+      width: 27px;
+      height: 27px;
+      border-radius: 50%;
+      border: 2px solid #272730;
+      margin-right: 10px;
+      padding: 0;
+      position: relative;
+      color: var(--black);
+      cursor: pointer;
+      &[data-theme="light"]{
+        color: var(--white);
+      }
+      .icon{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+        transition: all 0.3s;
+        width: 12px;
+      }
+      &[data-active]{
+        .icon{
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+        }
+      }
+      &:last-child{
+        margin-right: 0;
+      }
+    }
   }
 }

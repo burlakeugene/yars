@@ -2723,6 +2723,72 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           });
         });
       });
+
+      var setActiveColor = function setActiveColor(_ref) {
+        var container = _ref.container,
+            index = _ref.index,
+            slider = _ref.slider,
+            buttons = _ref.buttons;
+        var value = '';
+        slider.slideTo(index);
+        buttons.forEach(function (button, buttonIndex) {
+          if (index === buttonIndex) {
+            button.setAttribute('data-active', '');
+            value = button.dataset.value;
+          } else {
+            button.removeAttribute('data-active');
+          }
+        });
+        var parent = container.closest('.product'),
+            title = parent.dataset.title;
+        parent.querySelectorAll('[data-callback]').forEach(function (button) {
+          button.setAttribute('data-callback', title + ', цвет:' + value);
+        });
+      };
+
+      var productColors = document.querySelectorAll('.product__colors');
+      productColors.length && productColors.forEach(function (product) {
+        var sliderTarget = product.querySelector('.product__colors__slider'),
+            buttons = product.querySelectorAll('.product__colors__panel button');
+
+        if (sliderTarget) {
+          var slider = new _js_swiper_swiper_min_js__WEBPACK_IMPORTED_MODULE_2___default.a(sliderTarget.querySelector('.swiper-container'), {
+            speed: 600,
+            slidesPerView: 1,
+            spaceBetween: 15,
+            autoHeight: true,
+            navigation: {
+              prevEl: sliderTarget.querySelector('.swiper-button-prev'),
+              nextEl: sliderTarget.querySelector('.swiper-button-next')
+            }
+          });
+          slider.on('slideChange', function (slider) {
+            setActiveColor({
+              container: product,
+              index: slider.activeIndex,
+              slider: slider,
+              buttons: buttons
+            });
+          });
+          buttons.forEach(function (button, index) {
+            Object(_helpers__WEBPACK_IMPORTED_MODULE_10__["eventDecorator"])({
+              target: button,
+              event: {
+                type: 'click',
+                body: function body(e) {
+                  e.preventDefault();
+                  setActiveColor({
+                    container: product,
+                    index: index,
+                    slider: slider,
+                    buttons: buttons
+                  });
+                }
+              }
+            });
+          });
+        }
+      });
       var forms = document.querySelectorAll('.wpcf7-form');
       window.wpcf7 && window.wpcf7.init && forms.length && forms.forEach(function (form, index) {
         if (!form.querySelector('.wpcf7-spinner')) window.wpcf7.init(form);
