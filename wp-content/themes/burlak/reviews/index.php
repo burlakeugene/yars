@@ -37,9 +37,6 @@ my_get_template_part('sections/section', array(
         'autoHeight' => true,
         'spaceBetween' => 20,
         'loop' => true,
-        'autoplay' => [
-          'delay' => 5000,
-        ]
       ]
     ]
   )

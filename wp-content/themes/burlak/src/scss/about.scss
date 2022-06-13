@@ -25,6 +25,7 @@
   &s {
     flex-wrap: wrap;
     display: flex;
+    justify-content: center;
   }
 }
 
@@ -40,7 +41,6 @@
     color: var(--gradient-end);
     font-family: grandis;
     font-weight: 700;
-    font-size: 80px;
     font-size: 72px;
     background: linear-gradient(
       to top,

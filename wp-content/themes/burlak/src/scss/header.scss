@@ -3,13 +3,13 @@
   position: sticky;
   top: 0;
   z-index: 5;
-  &__inner{
+  &__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 0;
   }
-  .button{
+  .button {
     font-size: 20px;
     padding: 10px;
     font-family: grandis;
@@ -19,8 +19,8 @@
 
 .sidebar {
   position: fixed;
-  top: 95px;
-  height: calc(100% - 95px);
+  top: 60px;
+  height: calc(100% - 60px);
   width: 100%;
   max-width: 320px;
   right: 0;
@@ -33,32 +33,30 @@
   justify-content: space-between;
   transform: translateX(100%);
   transition: all 0.3s;
-  &__socials {
-    .socials {
+  &__footer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .socials{
+      margin-bottom: 10px;
       justify-content: center;
     }
+    a{
+      text-align: center;
+    }
   }
-  &__navigation {
-    ul {
-      padding: 0;
+  .navigation ul {
+    flex-direction: column;
+    li {
       margin: 0;
-      list-style: none;
-      li {
-        line-height: 1em;
-        margin-bottom: 15px;
-        &:last-child {
-          margin-bottom: 0;
+      a {
+        &:after {
+          display: none;
         }
       }
-      a {
-        font-size: 16px;
-        font-weight: 500;
-        color: var(--gray-dark);
-        transition: all 0.3s;
-        display: block;
-        &:hover {
-          color: var(--theme);
-        }
+      &.current_page_item a,
+      a:hover {
+        color: var(--theme);
       }
     }
   }

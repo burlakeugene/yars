@@ -37,9 +37,23 @@
               </a>
             </div>
           <?php endif; ?>
+          <div class="header__col">
+          <?php get_template_part('blocks/toggle') ?>
+          </div>
         </div>
       </div>
     </header>
     <sidebar class="sidebar">
+      <?php my_get_template_part('blocks/navigation', [
+        'type' => 'header'
+      ]) ?>
+      <div class="sidebar__footer">
+        <?php get_template_part('blocks/socials') ?>
+        <?php if($phone): ?>
+          <a class="button button--black button--ghost" href="tel:<?= phone_replace($phone) ?>">
+            <?= $phone ?>
+          </a>
+        <?php endif; ?>
+      </div>
     </sidebar>
     <main>

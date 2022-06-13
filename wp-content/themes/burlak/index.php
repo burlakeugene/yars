@@ -41,6 +41,7 @@
       'props' => [
         'theme' => 'light',
         'fullHeightSlide' => true,
+        'classes' => 'cards',
         'buttons' => true,
         'pagination' => true,
         'list' => get_field('list', 95),
