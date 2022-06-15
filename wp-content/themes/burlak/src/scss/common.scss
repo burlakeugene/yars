@@ -610,6 +610,19 @@ a,
   }
 }
 
+@media (hover: none) {
+  .video {
+    video {
+      opacity: 1;
+      transition: none;
+      visibility: hidden;
+    }
+    &--played {
+      visibility: visible;
+    }
+  }
+}
+
 .load-more {
   &__pagination {
     margin: 40px 0;
@@ -1380,7 +1393,7 @@ body.scrolled {
       height: auto;
     }
   }
-  .swiper-pagination:not(:empty){
+  .swiper-pagination:not(:empty) {
     margin-top: 20px;
   }
   &--light {

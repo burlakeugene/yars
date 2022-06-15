@@ -136,8 +136,27 @@
       replaced.parentNode.replaceChild(replacement, replaced);
       if (addToHistory) history.pushState(null, null, href);
       self.addLinksEvent(self.options.navItems);
-      if (self.afterRendered) self.afterRendered(replacement);
-      self.loadEnd();
+      if (self.afterRendered) {
+        const media = replacement.querySelectorAll('img, video');
+        Promise.all(
+          [...media].map((item) => {
+            return new Promise((resolve, reject) => {
+              item.onload = resolve;
+              if (item.tagName === 'IMG') item.onload = resolve;
+              if (item.tagName === 'VIDEO') {
+                item.addEventListener('loadedmetadata', () => {
+                  resolve();
+                });
+              }
+            });
+          })
+        ).then(() => {
+          self.afterRendered(replacement);
+          self.loadEnd();
+        });
+      } else {
+        self.loadEnd();
+      }
     };
 
     this.getContent = function (href, addToHistory) {
@@ -201,12 +220,23 @@
     };
 
     this.init = function () {
+      var self = this;
       if (this.beforeInit) this.beforeInit();
       this.addLinksEvent(this.options.navItems);
       this.popStateListener();
-      if (this.afterRendered)
-        this.afterRendered(document.querySelector(this.options.container));
-      if (this.afterInit) this.afterInit();
+      window.addEventListener('load', function () {
+        var preloader = document.querySelector('.preloader');
+        if (preloader) {
+          preloader.classList.remove('preloader__visible');
+          setTimeout(function () {
+            preloader.parentNode.removeChild(preloader);
+          }, 400);
+        }
+        if (self.afterRendered)
+          self.afterRendered(document.querySelector(self.options.container));
+        if (self.afterInit) self.afterInit();
+      });
+
       return this;
     };
   };

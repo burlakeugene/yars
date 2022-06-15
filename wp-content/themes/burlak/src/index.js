@@ -362,14 +362,15 @@ import { eventDecorator, declension, formatNumber } from './helpers';
       });
 
       let sliders = document.querySelectorAll('.slider');
-
       sliders.length &&
         sliders.forEach((slider) => {
           let config = JSON.parse(slider.dataset.config);
-          const init = () => {
-            new Swiper(slider.querySelector('.swiper-container'), {
+          let sliderInit = new Swiper(
+            slider.querySelector('.swiper-container'),
+            {
               ...(config || {}),
               speed: 600,
+              observer: true,
               navigation: {
                 prevEl: slider.querySelector('.swiper-button-prev'),
                 nextEl: slider.querySelector('.swiper-button-next'),
@@ -378,10 +379,8 @@ import { eventDecorator, declension, formatNumber } from './helpers';
                 el: slider.querySelector('.swiper-pagination'),
                 clickable: true,
               },
-            });
-          };
-          let videos = slider.querySelectorAll('video');
-          setTimeout(init, videos.length ? 500 : 0);
+            }
+          );
         });
 
       let contentBlocks = document.querySelectorAll('.content-block');
@@ -411,9 +410,6 @@ import { eventDecorator, declension, formatNumber } from './helpers';
             navigation: {
               prevEl: contentBlockSlider.querySelector('.swiper-button-prev'),
               nextEl: contentBlockSlider.querySelector('.swiper-button-next'),
-            },
-            autoplay: {
-              delay: 5000,
             },
             thumbs: {
               swiper: thumbsSlider,
@@ -784,16 +780,6 @@ import { eventDecorator, declension, formatNumber } from './helpers';
       afterInit: function () {},
     });
     router.init();
-  });
-
-  window.addEventListener('load', function () {
-    var preloader = document.querySelector('.preloader');
-    if (preloader) {
-      preloader.classList.remove('preloader__visible');
-      setTimeout(function () {
-        preloader.parentNode.removeChild(preloader);
-      }, 400);
-    }
   });
 
   window.addEventListener('scroll', () => {

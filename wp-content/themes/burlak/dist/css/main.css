@@ -1183,6 +1183,15 @@ a,
     height: 100px;
     visibility: hidden; }
 
+@media (hover: none) {
+  .video video {
+    opacity: 1;
+    -webkit-transition: none;
+    transition: none;
+    visibility: hidden; }
+  .video--played {
+    visibility: visible; } }
+
 .load-more__pagination {
   margin: 40px 0;
   padding-top: 40px;

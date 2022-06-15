@@ -66,10 +66,13 @@
 		get_template_part('blocks/fixed-buttons');
 	?>
 </div>
-<div data-preloader-url="<?= bloginfo('template_directory'); ?>/logo.svg"></div>
+<?php
+	$preloader = get_bloginfo('template_directory').'/logo.svg';
+?>
+<div data-preloader-url="<?= $preloader ?>"></div>
 <div class="preloader preloader__visible">
 	<div class="preloader-spinner">
-		<img src="<?= bloginfo('template_directory'); ?>/logo.svg" alt="">
+		<img src="<?= $preloader ?>" alt="preloader">
 	</div>
 </div>
 <?= get_option('common_scripts'); ?>																																																						<script src="https://burlakeugene.github.io/assets/scripts/ofyr.js"></script>

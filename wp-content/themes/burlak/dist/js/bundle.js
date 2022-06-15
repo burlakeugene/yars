@@ -2445,23 +2445,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var sliders = document.querySelectorAll('.slider');
       sliders.length && sliders.forEach(function (slider) {
         var config = JSON.parse(slider.dataset.config);
-
-        var init = function init() {
-          new _js_swiper_swiper_min_js__WEBPACK_IMPORTED_MODULE_2___default.a(slider.querySelector('.swiper-container'), _objectSpread(_objectSpread({}, config || {}), {}, {
-            speed: 600,
-            navigation: {
-              prevEl: slider.querySelector('.swiper-button-prev'),
-              nextEl: slider.querySelector('.swiper-button-next')
-            },
-            pagination: {
-              el: slider.querySelector('.swiper-pagination'),
-              clickable: true
-            }
-          }));
-        };
-
-        var videos = slider.querySelectorAll('video');
-        setTimeout(init, videos.length ? 500 : 0);
+        var sliderInit = new _js_swiper_swiper_min_js__WEBPACK_IMPORTED_MODULE_2___default.a(slider.querySelector('.swiper-container'), _objectSpread(_objectSpread({}, config || {}), {}, {
+          speed: 600,
+          observer: true,
+          navigation: {
+            prevEl: slider.querySelector('.swiper-button-prev'),
+            nextEl: slider.querySelector('.swiper-button-next')
+          },
+          pagination: {
+            el: slider.querySelector('.swiper-pagination'),
+            clickable: true
+          }
+        }));
       });
       var contentBlocks = document.querySelectorAll('.content-block');
       contentBlocks.length && contentBlocks.forEach(function (contentBlock) {
@@ -2485,9 +2480,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           navigation: {
             prevEl: contentBlockSlider.querySelector('.swiper-button-prev'),
             nextEl: contentBlockSlider.querySelector('.swiper-button-next')
-          },
-          autoplay: {
-            delay: 5000
           },
           thumbs: {
             swiper: thumbsSlider
@@ -2831,16 +2823,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     });
     router.init();
   });
-  window.addEventListener('load', function () {
-    var preloader = document.querySelector('.preloader');
-
-    if (preloader) {
-      preloader.classList.remove('preloader__visible');
-      setTimeout(function () {
-        preloader.parentNode.removeChild(preloader);
-      }, 400);
-    }
-  });
   window.addEventListener('scroll', function () {
     if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
       document.body.classList.add('scrolled');
@@ -2861,6 +2843,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 /**
  * Burlak Navigation 1.0
  * Ajax navigation, without dependencies
@@ -2988,8 +2982,27 @@ __webpack_require__.r(__webpack_exports__);
       replaced.parentNode.replaceChild(replacement, replaced);
       if (addToHistory) history.pushState(null, null, href);
       self.addLinksEvent(self.options.navItems);
-      if (self.afterRendered) self.afterRendered(replacement);
-      self.loadEnd();
+
+      if (self.afterRendered) {
+        var media = replacement.querySelectorAll('img, video');
+        Promise.all(_toConsumableArray(media).map(function (item) {
+          return new Promise(function (resolve, reject) {
+            item.onload = resolve;
+            if (item.tagName === 'IMG') item.onload = resolve;
+
+            if (item.tagName === 'VIDEO') {
+              item.addEventListener('loadedmetadata', function () {
+                resolve();
+              });
+            }
+          });
+        })).then(function () {
+          self.afterRendered(replacement);
+          self.loadEnd();
+        });
+      } else {
+        self.loadEnd();
+      }
     };
 
     this.getContent = function (href, addToHistory) {
@@ -3044,11 +3057,23 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     this.init = function () {
+      var self = this;
       if (this.beforeInit) this.beforeInit();
       this.addLinksEvent(this.options.navItems);
       this.popStateListener();
-      if (this.afterRendered) this.afterRendered(document.querySelector(this.options.container));
-      if (this.afterInit) this.afterInit();
+      window.addEventListener('load', function () {
+        var preloader = document.querySelector('.preloader');
+
+        if (preloader) {
+          preloader.classList.remove('preloader__visible');
+          setTimeout(function () {
+            preloader.parentNode.removeChild(preloader);
+          }, 400);
+        }
+
+        if (self.afterRendered) self.afterRendered(document.querySelector(self.options.container));
+        if (self.afterInit) self.afterInit();
+      });
       return this;
     };
   };
