@@ -51,11 +51,8 @@
         'config' => [
           'slidesPerView' => 1,
           'spaceBetween' => 24,
-          'autoplay' => [
-            'delay' => 5000,
-          ],
           'breakpoints' => [
-            800 => [
+            769 => [
               'slidesPerView' => 2
             ]
           ]
@@ -74,9 +71,6 @@
         ],
         'config' => [
           'slidesPerView' => 1,
-          'autoplay' => [
-            'delay' => 5000,
-          ],
         ]
       ]
     ]

@@ -4,6 +4,11 @@
   background-size: cover;
   background-attachment: fixed;
   padding: 120px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 72vh;
+  height: 100%;
   &__title {
     padding-left: 40px;
     position: relative;
@@ -49,11 +54,6 @@
   }
   .banner {
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 72vh;
-    padding: 0;
     &:before {
       content: '';
       display: block;

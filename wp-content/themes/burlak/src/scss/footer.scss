@@ -5,6 +5,16 @@
   background-repeat: no-repeat;
   padding: 35px 0;
   color: var(--white);
+  a {
+    color: var(--white);
+  }
+  a {
+    transition: all 0.3s;
+    white-space: nowrap;
+    &:hover {
+      color: var(--theme);
+    }
+  }
   &__block {
     &s {
       display: flex;
@@ -46,17 +56,6 @@
       margin-bottom: 25px;
       &:last-child {
         margin-bottom: 0;
-      }
-      &,
-      a {
-        color: var(--white);
-      }
-      a {
-        transition: all 0.3s;
-        white-space: nowrap;
-        &:hover {
-          color: var(--theme);
-        }
       }
       .icon {
         position: absolute;

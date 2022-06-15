@@ -19,11 +19,6 @@
         'buttons' => true,
         'item' => [
           'path' => 'gallery/item'
-        ],
-        'config' => [
-          'autoplay' => [
-            'delay' => 5000,
-          ]
         ]
       ]
     )

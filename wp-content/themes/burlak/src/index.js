@@ -366,7 +366,7 @@ import { eventDecorator, declension, formatNumber } from './helpers';
       sliders.length &&
         sliders.forEach((slider) => {
           let config = JSON.parse(slider.dataset.config);
-          setTimeout(() => {
+          const init = () => {
             new Swiper(slider.querySelector('.swiper-container'), {
               ...(config || {}),
               speed: 600,
@@ -379,7 +379,9 @@ import { eventDecorator, declension, formatNumber } from './helpers';
                 clickable: true,
               },
             });
-          }, 100);
+          };
+          let videos = slider.querySelectorAll('video');
+          setTimeout(init, videos.length ? 500 : 0);
         });
 
       let contentBlocks = document.querySelectorAll('.content-block');

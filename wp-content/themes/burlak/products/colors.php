@@ -18,7 +18,7 @@ if($colors):
         </div>
       </div>
       <?php
-        get_template_part('blocks/swiper-buttons');
+        get_template_part('slider/buttons');
       ?>
     </div>
     <div class="product__colors__panel">

@@ -23,7 +23,7 @@
           </div>
           <?php
             if(count($images) > 1){
-              get_template_part('blocks/swiper-buttons');
+              get_template_part('slider/buttons');
             }
           ?>
         </div>

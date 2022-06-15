@@ -377,3 +377,9 @@
     font-size: 24px;
   }
 }
+
+@media (hover: none) {
+  .banner{
+    background-attachment: inherit;
+  }
+}
