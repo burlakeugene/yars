@@ -1,9 +1,17 @@
 <?php
-  $list = get_field('items', 43);
+  if(!$list){
+    $list = get_field('items', 43);
+  }
+  if(!$title){
+    $title = 'Галерея';
+  }
+  if(!$theme){
+    $theme = 'dark';
+  }
   my_get_template_part('sections/section', array(
-    'dark' => 80,
+    'dark' => $theme == 'dark' ? 80 : false,
     'header' => array(
-      'title' => 'Галерея',
+      'title' => $title,
       'line' => true,
       'uppercase' => true,
       'align' => 'left'
@@ -12,7 +20,7 @@
       'wide' => true,
       'path' => 'slider/slider',
       'props' => [
-        'theme' => 'light',
+        'theme' => $theme == 'dark' ? 'light' : 'dark',
         'classes' => 'gallery',
         'list' => $list,
         'pagination' => true,

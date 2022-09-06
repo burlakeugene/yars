@@ -1,4 +1,8 @@
-<div class="product" data-title="<?= get_the_title() ?>">
+<?php
+  $images = get_field('items');
+  $title = get_the_title();
+?>
+<div class="product" data-title="<?= $title ?>">
   <?php
     get_template_part('page/banners');
     my_get_template_part('sections/section', [
@@ -17,6 +21,13 @@
         'path' => 'products/attributes'
       ]
     ]);
+    if($images){
+      my_get_template_part('gallery/index', [
+        'theme' => 'light',
+        'title' => 'Галерея "'.$title.'"',
+        'list' => $images
+      ]);
+    }
     my_get_template_part('sections/section', array(
       'header' => array(
         'title' => 'У Вас остались вопросы?',

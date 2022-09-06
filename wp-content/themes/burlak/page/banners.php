@@ -12,9 +12,9 @@
     'config' => [
       'slidesPerView' => 1,
       'loop' => true,
-      'autoplay' => [
+      'autoplay' => count($banners) > 1 ? [
         'delay' => 5000,
-      ],
+      ] : false
     ]
   ]);
 ?>
