@@ -60,21 +60,21 @@
       ]
     ]
   ));
-  my_get_template_part('sections/section', array(
-    'content' => [
-      'path' => 'slider/slider',
-      'props' => [
-        'buttons' => true,
-        'list' => get_field('list', 89),
-        'item' => [
-          'path' => 'slider/item--image'
-        ],
-        'config' => [
-          'slidesPerView' => 1,
-        ]
-      ]
-    ]
-  ));
+  // my_get_template_part('sections/section', array(
+  //   'content' => [
+  //     'path' => 'slider/slider',
+  //     'props' => [
+  //       'buttons' => true,
+  //       'list' => get_field('list', 89),
+  //       'item' => [
+  //         'path' => 'slider/item--image'
+  //       ],
+  //       'config' => [
+  //         'slidesPerView' => 1,
+  //       ]
+  //     ]
+  //   ]
+  // ));
   my_get_template_part('sections/section', array(
     'dark' => 40,
     'header' => array(
