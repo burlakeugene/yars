@@ -1,5 +1,4 @@
 <?php
-  $currency = get_option('currency');
   $price = get_field('price');
   $colors = get_field('colors');
   $color = $colors && $colors[0] ? $colors[0]['label'] : '';
@@ -12,9 +11,11 @@
     <h1 class="product__title">
       <?php the_title() ?>
     </h1>
-    <div class="product__price">
-      Цена от <?= $price ?> <?= $currency ?>
-    </div>
+    <?php if($price): ?>
+      <div class="product__price">
+        <?= $price ?>
+      </div>
+    <?php endif; ?>
     <div class="product__description content">
       <?php the_content(); ?>
     </div>
